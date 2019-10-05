@@ -27,6 +27,8 @@ function setup(){
 
 function touchStarted(){
   //clear the array
+
+  return false;
 }
 
 function touchMoved(){
@@ -38,6 +40,8 @@ function touchMoved(){
     bgLayer.curveVertex(lineArrayX[i], lineArrayY[i]);
   }
   bgLayer.endShape();
+
+  return false;
 
 }
 
