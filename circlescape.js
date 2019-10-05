@@ -50,6 +50,8 @@ function touchEnded(){
   lineArrayX = [];
   lineArrayY = [];
 
+  return false;
+
 }
 
 function draw(){
