@@ -18,7 +18,7 @@ function preload() {
   fgLayer1 = loadImage('assets/s1-1.jpg');
   fgLayer2 = loadImage('assets/s1-2.jpg');
   fgLayer3 = loadImage('assets/s1-3.jpg');
-  bg = loadImage('assets/bg1.png');
+
 }
 
 function setup() {
@@ -30,7 +30,6 @@ function setup() {
   bgLayer1.strokeWeight(12);
   bgLayer1.stroke(0);
   bgLayer1.noFill();
-
 
   bgLayer2 = createGraphics(windowWidth, windowHeight);
   subLayer2 = createGraphics(windowWidth, windowHeight);
@@ -48,7 +47,6 @@ function setup() {
 
   sliderImg = createGraphics(windowWidth, windowHeight);
   holdingImg = createGraphics(windowWidth, windowHeight);
-
 
   calcDimensions();
   makeSwatch();
@@ -129,7 +127,7 @@ function touchMoved() {
 
   }
 
-    touchDraw();
+
 
   return false;
 
@@ -205,14 +203,14 @@ function touchEnded() {
     //nothing for now
   }
 
-  touchDraw();
+
 
   return false;
 
 }
 
 
-function touchDraw() {
+function draw() {
 
   if (drawingIsActive) {
     blendMode(BLEND);
@@ -237,9 +235,7 @@ function touchDraw() {
     subLayer3.image(fgLayer3, 0, 0, width, height);
     blendMode(MULTIPLY);
     image(subLayer3, 0, 0, width, height);
-    //
-    // blendMode(BLEND);
-    // image(bg, 0, 0, width, height);
+
 
   } else {
     for (let i = 0; i < tileNum; i++) {
