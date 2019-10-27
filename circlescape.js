@@ -24,6 +24,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+    calcDimensions();
+
   bgLayer1 = createGraphics(windowWidth, windowHeight);
   subLayer1 = createGraphics(windowWidth, windowHeight);
   bgLayer1.background(255, 240, 245);
@@ -48,7 +50,7 @@ function setup() {
   sliderImg = createGraphics(windowWidth, windowHeight);
   holdingImg = createGraphics(windowWidth, windowHeight);
 
-  calcDimensions();
+
   makeSwatch();
 
 
@@ -215,17 +217,17 @@ function draw() {
     subLayer1.blendMode(BLEND);
     subLayer1.image(bgLayer1, 0, 0, width, height);
     subLayer1.blendMode(LIGHTEST);
-    subLayer1.image(fgLayer1, 0, 0, width, height);
+    subLayer1.image(fgLayer1, 0, 0, vMax*100, vMax*100);
 
     subLayer2.blendMode(BLEND);
     subLayer2.image(bgLayer2, 0, 0, width, height);
     subLayer2.blendMode(LIGHTEST);
-    subLayer2.image(fgLayer2, 0, 0, width, height);
+    subLayer2.image(fgLayer2, 0, 0, vMax*100, vMax*100);
 
     subLayer3.blendMode(BLEND);
     subLayer3.image(bgLayer3, 0, 0, width, height);
     subLayer3.blendMode(LIGHTEST);
-    subLayer3.image(fgLayer3, 0, 0, width, height);
+    subLayer3.image(fgLayer3, 0, 0, vMax*100, vMax*100);
 
     blendMode(MULTIPLY);
     image(subLayer1, 0, 0, width, height);
