@@ -26,21 +26,21 @@ function setup() {
 
   bgLayer1 = createGraphics(windowWidth, windowHeight);
   subLayer1 = createGraphics(windowWidth, windowHeight);
-  bgLayer1.background(appCol);
+  bgLayer1.background(255, 240, 245);
   bgLayer1.strokeWeight(12);
   bgLayer1.stroke(0);
   bgLayer1.noFill();
 
   bgLayer2 = createGraphics(windowWidth, windowHeight);
   subLayer2 = createGraphics(windowWidth, windowHeight);
-  bgLayer2.background(appCol);
+  bgLayer2.background(255);
   bgLayer2.strokeWeight(12);
   bgLayer2.stroke(0);
   bgLayer2.noFill();
 
   bgLayer3 = createGraphics(windowWidth, windowHeight);
   subLayer3 = createGraphics(windowWidth, windowHeight);
-  bgLayer3.background(appCol);
+  bgLayer3.background(255);
   bgLayer3.strokeWeight(12);
   bgLayer3.stroke(0);
   bgLayer3.noFill();
@@ -73,7 +73,7 @@ function touchMoved() {
     }
 
     else if (currentLayer === 2) {
-        bgLayer2.strokeWeight(12);
+      bgLayer2.strokeWeight(12);
       lineArrayX.push(mouseX);
       lineArrayY.push(mouseY);
       bgLayer2.beginShape();
@@ -210,26 +210,26 @@ function draw() {
 
   if (drawingIsActive) {
     blendMode(BLEND);
-    background(appCol);
+    background(255);
+
     subLayer1.blendMode(BLEND);
     subLayer1.image(bgLayer1, 0, 0, width, height);
     subLayer1.blendMode(LIGHTEST);
     subLayer1.image(fgLayer1, 0, 0, width, height);
-    blendMode(MULTIPLY);
-    image(subLayer1, 0, 0, width, height);
 
     subLayer2.blendMode(BLEND);
     subLayer2.image(bgLayer2, 0, 0, width, height);
     subLayer2.blendMode(LIGHTEST);
     subLayer2.image(fgLayer2, 0, 0, width, height);
-    blendMode(MULTIPLY);
-    image(subLayer2, 0, 0, width, height);
 
     subLayer3.blendMode(BLEND);
     subLayer3.image(bgLayer3, 0, 0, width, height);
     subLayer3.blendMode(LIGHTEST);
     subLayer3.image(fgLayer3, 0, 0, width, height);
+
     blendMode(MULTIPLY);
+    image(subLayer1, 0, 0, width, height);
+    image(subLayer2, 0, 0, width, height);
     image(subLayer3, 0, 0, width, height);
 
 

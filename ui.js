@@ -115,9 +115,9 @@ else{
   if (stage === 4){
     stage = 0;
   }
-bgLayer1.clear();
-bgLayer2.clear();
-bgLayer3.clear();
+bgLayer1.background(255, 240, 245);
+bgLayer2.clear(appCol);
+bgLayer3.clear(appCol);
 subLayer1.background(appBg);
 subLayer2.background(appBg);
 subLayer3.background(appBg);
