@@ -201,7 +201,7 @@ function touchEnded() {
 
 
 
-  return false;
+//  return false;
 
 }
 
