@@ -8,7 +8,7 @@ let bg;
 
 let drawingIsActive = 1;
 
-let tileNum = 5;
+let tileNum = 2;
 let sliderImg;
 let holdingImg;
 
@@ -26,21 +26,21 @@ function setup() {
 
   bgLayer1 = createGraphics(windowWidth, windowHeight);
   subLayer1 = createGraphics(windowWidth, windowHeight);
-  bgLayer1.background(255);
+  bgLayer1.background(appCol);
   bgLayer1.strokeWeight(12);
   bgLayer1.stroke(0);
   bgLayer1.noFill();
 
   bgLayer2 = createGraphics(windowWidth, windowHeight);
   subLayer2 = createGraphics(windowWidth, windowHeight);
-  bgLayer2.background(255);
+  bgLayer2.background(appCol);
   bgLayer2.strokeWeight(12);
   bgLayer2.stroke(0);
   bgLayer2.noFill();
 
   bgLayer3 = createGraphics(windowWidth, windowHeight);
   subLayer3 = createGraphics(windowWidth, windowHeight);
-  bgLayer3.background(255);
+  bgLayer3.background(appCol);
   bgLayer3.strokeWeight(12);
   bgLayer3.stroke(0);
   bgLayer3.noFill();
@@ -138,7 +138,7 @@ function touchEnded() {
 
 
     if (currentLayer === 1) {
-      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 50) {
+      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 250) {
         bgLayer1.fill(0);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -157,7 +157,7 @@ function touchEnded() {
     }
 
     else if (currentLayer === 2) {
-      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 50) {
+      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 250) {
         bgLayer2.fill(0);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -176,7 +176,7 @@ function touchEnded() {
     }
 
     else if (currentLayer === 3) {
-      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 50) {
+      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 250) {
         bgLayer3.fill(0);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -210,7 +210,7 @@ function draw() {
 
   if (drawingIsActive) {
     blendMode(BLEND);
-    background(255);
+    background(appCol);
     subLayer1.blendMode(BLEND);
     subLayer1.image(bgLayer1, 0, 0, width, height);
     subLayer1.blendMode(LIGHTEST);

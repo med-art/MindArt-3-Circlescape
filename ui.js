@@ -1,7 +1,7 @@
 let swatchCol = ['#004da7', "#d54288", '#fce302', '#004ea9', '#fce300','#007c40', '#479fdf', '#92328c', '#ef6301', '#007b3d', '#fe8f1c', '#fce300'];
 
 let newButton, saveButton;
-let appCol = 0;
+let appCol = "#FFD8D1";
 let appBg = 250;
 
 let fsBool = 0;
@@ -162,7 +162,7 @@ blendMode(BLEND);
 
 function changeBrush(layerSelected){
   currentLayer = layerSelected;
-  
+
 
   selColour.remove();
   selColour = createImg('assets/colSelected.png');
@@ -185,14 +185,14 @@ function makeSlider(_mouseX) {
   sliderImg.clear();
   sliderImg.stroke("#f1b300");
   sliderImg.strokeWeight(8);
-  sliderImg.line(width * 0.04, height - (6 * vMax), width * 0.82, height - (6 * vMax));
+  sliderImg.line(width * 0.04, height - (6 * vMax), width * 0.75, height - (6 * vMax));
   sliderImg.stroke("#f1b300");
   sliderImg.strokeWeight(30);
-  sliderImg.line(50, height - (6 * vMax), constrain(_mouseX, width * 0.04, width * 0.82), height - (6 * vMax));
+  sliderImg.line(50, height - (6 * vMax), constrain(_mouseX, width * 0.04, width * 0.75), height - (6 * vMax));
   sliderImg.rectMode(RADIUS);
   sliderImg.fill("#5cf22c");
   sliderImg.noStroke();
-  sliderImg.rect(constrain(_mouseX, width * 0.04, width * 0.82), height - (6 * vMax), 1 * vMax, 5 * vMax);
+  sliderImg.rect(constrain(_mouseX, width * 0.04, width * 0.75), height - (6 * vMax), 1 * vMax, 5 * vMax);
 
 
 }
