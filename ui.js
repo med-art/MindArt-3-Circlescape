@@ -121,7 +121,7 @@ bgLayer3.clear();
 subLayer1.background(appBg);
 subLayer2.background(appBg);
 subLayer3.background(appBg);
-console.log(stage);
+
 
 if (stage === 0){
   fgLayer1 = loadImage('assets/s1-1.jpg');
@@ -162,7 +162,7 @@ blendMode(BLEND);
 
 function changeBrush(layerSelected){
   currentLayer = layerSelected;
-  console.log(currentLayer);
+  
 
   selColour.remove();
   selColour = createImg('assets/colSelected.png');
@@ -181,7 +181,7 @@ function changeBrush(layerSelected){
 }
 
 function makeSlider(_mouseX) {
-  
+
   sliderImg.clear();
   sliderImg.stroke("#f1b300");
   sliderImg.strokeWeight(8);

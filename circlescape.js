@@ -56,10 +56,6 @@ function setup() {
 
 
 
-function touchStarted() {
-  // nothing for now
-  return false;
-}
 
 function touchMoved() {
 
