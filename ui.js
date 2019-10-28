@@ -1,7 +1,6 @@
 let swatchCol = ['#004da7', "#d54288", '#fce302', '#004ea9', '#fce300','#007c40', '#479fdf', '#92328c', '#ef6301', '#007b3d', '#fe8f1c', '#fce300'];
 
 let newButton, saveButton;
-let appCol = "#FFD8D1";
 let appBg = 250;
 
 let fsBool = 0;

@@ -14,17 +14,25 @@ let holdingImg;
 
 let currentLayer = 1;
 
+let audio;
+let ellipseSize;
+let inverter = 1;
+let arcRadius;
+let tempCosX, tempSinY;
+
+
 function preload() {
   fgLayer1 = loadImage('assets/s1-1.jpg');
   fgLayer2 = loadImage('assets/s1-2.jpg');
   fgLayer3 = loadImage('assets/s1-3.jpg');
-
+  audio = loadSound('assets/audio.mp3');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
     calcDimensions();
+      textLayer = createGraphics(windowWidth, windowHeight);
 
   bgLayer1 = createGraphics(windowWidth, windowHeight);
   subLayer1 = createGraphics(windowWidth, windowHeight);
@@ -51,8 +59,15 @@ function setup() {
   holdingImg = createGraphics(windowWidth, windowHeight);
 
 
-  makeSwatch();
 
+
+  driftY = height/3;
+  ellipseSize = vMax * 20;
+  arcRadius = vMin*35;
+
+
+
+slideShow();
 
 }
 
@@ -60,6 +75,8 @@ function setup() {
 
 
 function touchMoved() {
+
+if (introState === 3) {
 
   if (drawingIsActive && eraseBoolean === 0) {
 
@@ -124,6 +141,17 @@ function touchMoved() {
     makeSlider(winMouseX);
 
   }
+
+} else {
+
+  if (slide > 0) {
+
+    if (dist(tempCosX,tempSinY,winMouseX,winMouseY) < ellipseSize/2){
+      ellipseSize = ellipseSize-(0.1);
+      arcRadius = arcRadius-(0.1);
+    }
+  }
+}
 
 
 
@@ -210,6 +238,8 @@ function touchEnded() {
 
 function draw() {
 
+if (introState === 3){
+
   if (drawingIsActive) {
     blendMode(BLEND);
     background(255);
@@ -249,5 +279,42 @@ function draw() {
     blendMode(BLEND);
     image(sliderImg, 0, 0, width, height);
   }
+} else {
+
+      //introLayer.image(textLayer, 0, 0, width, height);
+      blendMode(BLEND);
+      background(241, 181, 0, 100);
+      //image(introLayer, 0, 0, width, height);
+
+
+      if (slide > 0) {
+
+      blendMode(BLEND);
+        fill(color('#469ede'));
+        noStroke();
+
+
+
+
+
+        tempCosX = (arcRadius * cos(radians(driftY/3))) + width / 2;
+        tempSinY = (arcRadius * sin(radians(driftY/3))) + height / 2;
+        ellipse(tempCosX, tempSinY, ellipseSize, ellipseSize);
+
+        driftY+=1.5;
+
+        // if (driftY <= 100 || driftY >= height- 100) {
+        //   inverter = -inverter;
+        //   }
+      }
+
+      if (slide === 0) {
+        textLayer.text(introText[slide], width / 2, (height / 8) * (slide + 2));
+      } else {
+        textLayer.text(introText[slide - 1], width / 2, (height / 6) * (slide));
+      } // this if else statgement needs to be replaced with a better system. The current state tracking is not working
+      image(textLayer, 0, 0, width, height);
+
+}
 
 }
