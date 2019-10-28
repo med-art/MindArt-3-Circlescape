@@ -82,8 +82,8 @@ if (introState === 3) {
 
     if (currentLayer === 1) {
       bgLayer1.strokeWeight(12);
-      lineArrayX.push(mouseX);
-      lineArrayY.push(mouseY);
+      lineArrayX.push(winMouseX);
+      lineArrayY.push(winMouseY);
       bgLayer1.beginShape();
       for (i = 0; i < lineArrayX.length; i++) {
         bgLayer1.curveVertex(lineArrayX[i], lineArrayY[i]);
@@ -93,8 +93,8 @@ if (introState === 3) {
 
     else if (currentLayer === 2) {
       bgLayer2.strokeWeight(12);
-      lineArrayX.push(mouseX);
-      lineArrayY.push(mouseY);
+      lineArrayX.push(winMouseX);
+      lineArrayY.push(winMouseY);
       bgLayer2.beginShape();
       for (i = 0; i < lineArrayX.length; i++) {
         bgLayer2.curveVertex(lineArrayX[i], lineArrayY[i]);
@@ -104,8 +104,8 @@ if (introState === 3) {
 
     else if (currentLayer === 3) {
         bgLayer3.strokeWeight(12);
-      lineArrayX.push(mouseX);
-      lineArrayY.push(mouseY);
+      lineArrayX.push(winMouseX);
+      lineArrayY.push(winMouseY);
       bgLayer3.beginShape();
       for (i = 0; i < lineArrayX.length; i++) {
         bgLayer3.curveVertex(lineArrayX[i], lineArrayY[i]);
@@ -137,7 +137,7 @@ if (introState === 3) {
 
   else {
 
-    tileNum = constrain(((width / (mouseX + 20))), 1, 10);
+    tileNum = constrain(((width / (winMouseX + 20))), 1, 10);
     makeSlider(winMouseX);
 
   }
@@ -147,7 +147,7 @@ if (introState === 3) {
   if (slide > 0) {
 
     if (dist(tempCosX,tempSinY,winMouseX,winMouseY) < ellipseSize/2){
-      ellipseSize = ellipseSize-(0.1);
+      ellipseSize = ellipseSize-(0.5);
       arcRadius = arcRadius-(0.1);
     }
   }
@@ -168,7 +168,7 @@ function touchEnded() {
 
 
     if (currentLayer === 1) {
-      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
         bgLayer1.fill(0);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -187,7 +187,7 @@ function touchEnded() {
     }
 
     else if (currentLayer === 2) {
-      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
         bgLayer2.fill(0);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -206,7 +206,7 @@ function touchEnded() {
     }
 
     else if (currentLayer === 3) {
-      if (lineArrayX.length > 20 && dist(mouseX, mouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
         bgLayer3.fill(0);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -317,4 +317,12 @@ if (introState === 3){
 
 }
 
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  calcDimensions();
+  removeElements();
+  makeSwatch();
+  saveNext();
 }
