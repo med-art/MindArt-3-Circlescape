@@ -320,6 +320,7 @@ if (introState === 3){
 }
 
 function windowResized() {
+    paint.resizeCanvas(windowWidth, windowHeight);
   resizeCanvas(windowWidth, windowHeight);
   calcDimensions();
   removeElements();
