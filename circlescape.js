@@ -110,13 +110,13 @@ function touchMoved() {
       makeSlider(winMouseX);
     }
   } else {
-    if (slide > 0) {
-      if (dist(tempCosX, tempSinY, winMouseX, winMouseY) < ellipseSize / 2) {
-        ellipseSize = ellipseSize * 0.999;
-        arcRadius = arcRadius * 0.9995;
-        alphaTemp = 0.02;
-      }
-    }
+    // if (slide > 0) {
+    //   if (dist(tempCosX, tempSinY, winMouseX, winMouseY) < ellipseSize / 2) {
+    //     ellipseSize = ellipseSize * 0.999;
+    //     arcRadius = arcRadius * 0.9995;
+    //     alphaTemp = 0.02;
+    //   }
+    // }
   }
   return false;
 }
@@ -210,23 +210,23 @@ function draw() {
       image(sliderImg, 0, 0, width, height);
     }
   } else {
-    blendMode(BLEND);
-    background(241, 181, 0); // include an alphaTemp?
-    if (slide > 0) {
-      tempCosX = (arcRadius * cos(radians(driftY / 3))) + width / 2;
-      tempSinY = (arcRadius * sin(radians(driftY / 3))) + height / 2;
-      fill('#469ede');
-      stroke(255, 255, 255, 50);
-      ellipse(width / 2, height / 2, arcRadius * 2, arcRadius * 2);
-      stroke('#469ede');
-      strokeWeight(10);
-      fill(255, 255, 255, 100);
-      ellipse(tempCosX, tempSinY, ellipseSize, ellipseSize);
-      driftY += 1.1;
-      textLayer.text(introText[slide - 1], width / 2, (height / 6) * (slide));
-    }
-    image(introElement, 0, 0, width, height);
-    image(textLayer, 0, 0, width, height);
+    // blendMode(BLEND);
+    // background(241, 181, 0); // include an alphaTemp?
+    // if (slide > 0) {
+    //   tempCosX = (arcRadius * cos(radians(driftY / 3))) + width / 2;
+    //   tempSinY = (arcRadius * sin(radians(driftY / 3))) + height / 2;
+    //   fill('#469ede');
+    //   stroke(255, 255, 255, 50);
+    //   ellipse(width / 2, height / 2, arcRadius * 2, arcRadius * 2);
+    //   stroke('#469ede');
+    //   strokeWeight(10);
+    //   fill(255, 255, 255, 100);
+    //   ellipse(tempCosX, tempSinY, ellipseSize, ellipseSize);
+    //   driftY += 1.1;
+    //   textLayer.text(introText[slide - 1], width / 2, (height / 6) * (slide));
+    // }
+    // image(introElement, 0, 0, width, height);
+    // image(textLayer, 0, 0, width, height);
   }
 }
 
