@@ -37,13 +37,14 @@ function setup() {
   bgLayer1.noFill();
   bgLayer2 = createGraphics(width, height);
   subLayer2 = createGraphics(width, height);
-  subLayer2.blendMode(MULTIPLY);
+
 
   bgLayer2.background(255);
   bgLayer2.strokeWeight(12);
   bgLayer2.stroke(0);
   bgLayer2.noFill();
   bgLayer3 = createGraphics(width, height);
+  subLayer3 = createGraphics(width, height);
 
   bgLayer3.background(255);
   bgLayer3.strokeWeight(12);
@@ -183,40 +184,42 @@ if (currentLayer === 1){
   subLayer1.image(bgLayer1, 0, 0, width, height);
   subLayer1.blendMode(LIGHTEST);
   subLayer1.image(fgLayer1, 0, 0, vMax * 100, vMax * 100);
-  subLayer2.image(subLayer1, 0, 0, width, height);
 }
-else if (currentLayer === 2{
-  subLayer1.blendMode(BLEND);
-  subLayer1.image(bgLayer2, 0, 0, width, height);
-  subLayer1.blendMode(LIGHTEST);
-  subLayer1.image(fgLayer2, 0, 0, vMax * 100, vMax * 100);
-  subLayer2.image(subLayer1, 0, 0, width, height);
+else if (currentLayer === 2){
+  subLayer2.blendMode(BLEND);
+  subLayer2.image(bgLayer2, 0, 0, width, height);
+  subLayer2.blendMode(LIGHTEST);
+  subLayer2.image(fgLayer2, 0, 0, vMax * 100, vMax * 100);
 }
 else if (currentLayer === 3){
-      subLayer1.blendMode(BLEND);
-      subLayer1.image(bgLayer3, 0, 0, width, height);
-      subLayer1.blendMode(LIGHTEST);
-      subLayer1.image(fgLayer3, 0, 0, vMax * 100, vMax * 100);
-      subLayer2.image(subLayer1, 0, 0, width, height);
+      subLayer3.blendMode(BLEND);
+      subLayer3.image(bgLayer3, 0, 0, width, height);
+      subLayer3.blendMode(LIGHTEST);
+      subLayer3.image(fgLayer3, 0, 0, vMax * 100, vMax * 100);
 }
-
-    background(255);
-
+blendMode(BLEND);
+background(255);
     if (drawingIsActive) {
+
+      blendMode(MULTIPLY);
+      image(subLayer1, 0, 0, width, height);
       image(subLayer2, 0, 0, width, height);
+      image(subLayer3, 0, 0, width, height);
     } else if (!drawingIsActive) {
       {
         for (let i = 0; i < tileNum; i++) {
           for (let j = 0; j < tileNum; j++) {
             blendMode(DARKEST);
+            image(subLayer1, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
             image(subLayer2, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
+            image(subLayer3, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
           }
         }
         blendMode(BLEND);
         image(sliderImg, 0, 0, width, height);
       }
     }
-    subLayer2.clear();
+
   } else {
     blendMode(BLEND);
     background(241, 181, 0); // include an alphaTemp?

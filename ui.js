@@ -94,7 +94,8 @@ function nextStep() {
     bgLayer3.clear(appCol);
     subLayer1.background(appBg);
     subLayer2.background(appBg);
-  
+    subLayer3.background(appBg);
+
     if (stage === 0) {
       fgLayer1 = loadImage('assets/s1-1.jpg');
       fgLayer2 = loadImage('assets/s1-2.jpg');
