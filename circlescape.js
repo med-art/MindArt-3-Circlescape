@@ -63,9 +63,6 @@ function setup() {
   sliderImg = createGraphics(windowWidth, windowHeight);
   introElement = createGraphics(windowWidth, windowHeight);
 
-
-
-
   driftY = height / 3;
   ellipseSize = vMax * 20;
   arcRadius = vMin * 35;
@@ -257,7 +254,6 @@ function draw() {
       image(subLayer1, 0, 0, width, height);
       image(subLayer2, 0, 0, width, height);
       image(subLayer3, 0, 0, width, height);
-
 
     } else {
       for (let i = 0; i < tileNum; i++) {
