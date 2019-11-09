@@ -9,7 +9,6 @@ let eraseBoolean = 0;
 
 function calcDimensions() {
   vW = width / 100;
-
   if (width > height) {
     vMax = width / 100;
     vMin = height / 100;
@@ -20,14 +19,12 @@ function calcDimensions() {
 }
 
 function makeSwatch() {
-
   button = createImg('assets/eraseOn.png');
   button.remove();
   button = createImg('assets/eraseOff.png');
   button.position(1.5 * vMax, height - (14 * vMax));
   button.size(14 * vMax, 14 * vMax);
   button.mousePressed(makeErase);
-
   swatch1 = createButton("");
   swatch1.position(15 * vMax, height - (13 * vMax));
   swatch1.size(8 * vMax, 10.5 * vMax);
@@ -36,7 +33,6 @@ function makeSwatch() {
   swatch1.mousePressed(function() {
     changeBrush(1)
   });
-
   swatch2 = createButton("");
   swatch2.position(23 * vMax, height - (13 * vMax));
   swatch2.size(8 * vMax, 10.5 * vMax);
@@ -45,7 +41,6 @@ function makeSwatch() {
   swatch2.mousePressed(function() {
     changeBrush(2)
   });
-
   swatch3 = createButton("");
   swatch3.position(31 * vMax, height - (13 * vMax));
   swatch3.size(8 * vMax, 10.5 * vMax);
@@ -54,31 +49,24 @@ function makeSwatch() {
   swatch3.mousePressed(function() {
     changeBrush(3)
   });
-
-
   fsButton = createImg('assets/enterFS.png');
   fsButton.style('height', '4.5vMax');
   fsButton.position(width - (7.5 * vMax), 1.5 * vMax);
   fsButton.mousePressed(fs);
-
   selColour = createImg('assets/colSelected.png');
   selColour.position(15 * vMax, height - (16 * vMax));
   selColour.size(8 * vMax, 16 * vMax);
   selColour.mousePressed();
-
   saveNext();
-
 }
 
 function saveNext() {
-
   newButton = createButton("Next")
   newButton.class("select");
   newButton.position(width - (15 * vMax), height - (12.5 * vMax));
   newButton.style('font-size', '2.6vmax');
   newButton.style('height', '4.5vmax');
   newButton.mousePressed(nextStep);
-
   saveButton = createButton("Save")
   saveButton.class("select");
   saveButton.style('font-size', '2.6vmax');
@@ -87,19 +75,15 @@ function saveNext() {
   saveButton.mousePressed(saveImg);
 }
 
-
 function nextStep() {
-
   swatch1.remove();
   swatch2.remove();
   swatch3.remove();
   button.remove();
   selColour.remove();
-
   drawingIsActive = !drawingIsActive;
   if (!drawingIsActive) {
     makeSlider(winMouseX);
-
   } else {
     stage++;
     if (stage === 4) {
@@ -110,9 +94,7 @@ function nextStep() {
     bgLayer3.clear(appCol);
     subLayer1.background(appBg);
     subLayer2.background(appBg);
-    subLayer3.background(appBg);
-
-
+  
     if (stage === 0) {
       fgLayer1 = loadImage('assets/s1-1.jpg');
       fgLayer2 = loadImage('assets/s1-2.jpg');
@@ -130,32 +112,22 @@ function nextStep() {
       fgLayer2 = loadImage('assets/s4-2.jpg');
       fgLayer3 = loadImage('assets/s4-3.jpg');
     }
-
     makeSwatch();
     fsButton.remove();
     saveButton.remove();
     newButton.remove();
-
     currentLayer = 1;
     blendMode(BLEND);
   }
-
-
-
-
 }
-
 
 function changeBrush(layerSelected) {
   currentLayer = layerSelected;
-
-
   selColour.remove();
   selColour = createImg('assets/colSelected.png');
   selColour.position((15 + (8 * (layerSelected - 1))) * vMax, height - (16 * vMax));
   selColour.size(8 * vMax, 16 * vMax);
   selColour.mousePressed();
-
   button.remove();
   button = createImg('assets/eraseOff.png');
   button.position(1.5 * vMax, height - (14 * vMax));
@@ -165,7 +137,6 @@ function changeBrush(layerSelected) {
 }
 
 function makeSlider(_mouseX) {
-
   sliderImg.clear();
   sliderImg.stroke("#f1b300");
   sliderImg.strokeWeight(8);
@@ -177,8 +148,6 @@ function makeSlider(_mouseX) {
   sliderImg.fill("#5cf22c");
   sliderImg.noStroke();
   sliderImg.rect(constrain(_mouseX, width * 0.04, width * 0.75), height - (6 * vMax), 1 * vMax, 5 * vMax);
-
-
 }
 
 function saveImg() {
@@ -192,28 +161,21 @@ function saveImg() {
 }
 
 function fs() {
-
-
   if (!fsBool) {
     fullscreen(1);
     fsBool = 1;
   } else {
-
     fullscreen(0);
     fsBool = 0;
-
   }
 }
 
 function makeErase() {
-
   selColour.remove();
   button.remove();
   button = createImg('assets/eraseOn.png');
   button.position(1.5 * vMax, height - (14 * vMax));
   button.size(14 * vMax, 14 * vMax);
   button.mousePressed(makeErase);
-
   eraseBoolean = 1;
-
 }

@@ -178,36 +178,38 @@ function draw() {
    if (introState === 3) {
     if (drawingIsActive) {
 
-      blendMode(BLEND);
-      background(255);
+
+
+      subLayer2.blendMode(MULTIPLY);
 
       subLayer1.blendMode(BLEND);
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.blendMode(LIGHTEST);
       subLayer1.image(fgLayer1, 0, 0, vMax * 100, vMax * 100);
-      // subLayer2.blendMode(BLEND);
-      // subLayer2.image(bgLayer2, 0, 0, width, height);
-      // subLayer2.blendMode(LIGHTEST);
-      // subLayer2.image(fgLayer2, 0, 0, vMax * 100, vMax * 100);
-      // subLayer3.blendMode(BLEND);
-      // subLayer3.image(bgLayer3, 0, 0, width, height);
-      // subLayer3.blendMode(LIGHTEST);
-      // subLayer3.image(fgLayer3, 0, 0, vMax * 100, vMax * 100);
-      //
-      //
-      blendMode(MULTIPLY);
-      image(subLayer1, 0, 0, width, height);
-      // image(subLayer2, 0, 0, width, height);
-      // image(subLayer3, 0, 0, width, height);
+      subLayer2.image(subLayer1, 0, 0, width, height);
+       subLayer1.blendMode(BLEND);
+       subLayer1.image(bgLayer2, 0, 0, width, height);
+       subLayer1.blendMode(LIGHTEST);
+       subLayer1.image(fgLayer2, 0, 0, vMax * 100, vMax * 100);
+      subLayer2.image(subLayer1, 0, 0, width, height);
+       subLayer1.blendMode(BLEND);
+      subLayer1.image(bgLayer3, 0, 0, width, height);
+       subLayer1.blendMode(LIGHTEST);
+       subLayer1.image(fgLayer3, 0, 0, vMax * 100, vMax * 100);
+      subLayer2.image(subLayer1, 0, 0, width, height);
+
+      blendMode(BLEND);
+      background(255);
+      blendMode(BLEND);
+      image(subLayer2, 0, 0, width, height);
+      subLayer2.clear();
+
     } else {
       for (let i = 0; i < tileNum; i++) {
         for (let j = 0; j < tileNum; j++) {
-          blendMode(BLEND);
-          image(subLayer1, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
+              
           blendMode(DARKEST);
           image(subLayer2, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
-          blendMode(DARKEST);
-          image(subLayer3, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
         }
       }
       blendMode(BLEND);
