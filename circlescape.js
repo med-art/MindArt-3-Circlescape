@@ -37,6 +37,8 @@ function setup() {
   bgLayer1.noFill();
   bgLayer2 = createGraphics(width, height);
   subLayer2 = createGraphics(width, height);
+    subLayer2.blendMode(MULTIPLY);
+    
   bgLayer2.background(255);
   bgLayer2.strokeWeight(12);
   bgLayer2.stroke(0);
@@ -175,7 +177,7 @@ function touchEnded() {
 
 function draw() {
   if (introState === 3) {
-    subLayer2.blendMode(MULTIPLY);
+
     subLayer1.blendMode(BLEND);
     subLayer1.image(bgLayer1, 0, 0, width, height);
     subLayer1.blendMode(LIGHTEST);
