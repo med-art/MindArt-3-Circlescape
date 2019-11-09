@@ -37,8 +37,8 @@ function setup() {
   bgLayer1.noFill();
   bgLayer2 = createGraphics(width, height);
   subLayer2 = createGraphics(width, height);
-    subLayer2.blendMode(MULTIPLY);
-    
+  subLayer2.blendMode(MULTIPLY);
+
   bgLayer2.background(255);
   bgLayer2.strokeWeight(12);
   bgLayer2.stroke(0);
