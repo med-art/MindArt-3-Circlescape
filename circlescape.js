@@ -178,21 +178,28 @@ function touchEnded() {
 function draw() {
   if (introState === 3) {
 
-    subLayer1.blendMode(BLEND);
-    subLayer1.image(bgLayer1, 0, 0, width, height);
-    subLayer1.blendMode(LIGHTEST);
-    subLayer1.image(fgLayer1, 0, 0, vMax * 100, vMax * 100);
-    subLayer2.image(subLayer1, 0, 0, width, height);
-    // subLayer1.blendMode(BLEND);
-    // subLayer1.image(bgLayer2, 0, 0, width, height);
-    // subLayer1.blendMode(LIGHTEST);
-    // subLayer1.image(fgLayer2, 0, 0, vMax * 100, vMax * 100);
-    // subLayer2.image(subLayer1, 0, 0, width, height);
-    // subLayer1.blendMode(BLEND);
-    // subLayer1.image(bgLayer3, 0, 0, width, height);
-    // subLayer1.blendMode(LIGHTEST);
-    // subLayer1.image(fgLayer3, 0, 0, vMax * 100, vMax * 100);
-    // subLayer2.image(subLayer1, 0, 0, width, height);
+if (currentLayer === 1){
+  subLayer1.blendMode(BLEND);
+  subLayer1.image(bgLayer1, 0, 0, width, height);
+  subLayer1.blendMode(LIGHTEST);
+  subLayer1.image(fgLayer1, 0, 0, vMax * 100, vMax * 100);
+  subLayer2.image(subLayer1, 0, 0, width, height);
+}
+else if (currentLayer === 2{
+  subLayer1.blendMode(BLEND);
+  subLayer1.image(bgLayer2, 0, 0, width, height);
+  subLayer1.blendMode(LIGHTEST);
+  subLayer1.image(fgLayer2, 0, 0, vMax * 100, vMax * 100);
+  subLayer2.image(subLayer1, 0, 0, width, height);
+}
+else if (currentLayer === 3){
+      subLayer1.blendMode(BLEND);
+      subLayer1.image(bgLayer3, 0, 0, width, height);
+      subLayer1.blendMode(LIGHTEST);
+      subLayer1.image(fgLayer3, 0, 0, vMax * 100, vMax * 100);
+      subLayer2.image(subLayer1, 0, 0, width, height);
+}
+
     background(255);
 
     if (drawingIsActive) {
