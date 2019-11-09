@@ -28,7 +28,8 @@ function slideShow() {
     startButton.position((width / 2) - (12 * vMax), (height / 2) - (4 * vMax));
   }
   if (slide === introText.length) {
-    textLayer.clear();
+    textLayer.remove();
+    introElement.remove();
     introState = 3;
     makeSwatch();
     //windowResized();
