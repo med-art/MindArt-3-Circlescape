@@ -27,22 +27,20 @@ function slideShow() {
     startButton.class("startButton");
     startButton.position((width / 2) - (12 * vMax), (height / 2) - (4 * vMax));
   }
-
   if (slide === introText.length) {
     textLayer.clear();
     introState = 3;
     makeSwatch();
     //windowResized();
     counter = 0;
-    slide = 4; // effectively will switch off slideshow.
+    //slide = 4; // effectively will switch off slideshow.
   } else if (slide < introText.length && slide > 0) {
     textLayer.clear();
     textLayer.fill(255, 5);
     textLayer.textSize(vMax * 8);
     textLayer.textAlign(CENTER, CENTER);
     textLayer.rectMode(CENTER);
-
-  if (slide > 0) {
+    if (slide > 0) {
       if (slide === introText.length - 1) {
         delayTime = 10000;
       }
