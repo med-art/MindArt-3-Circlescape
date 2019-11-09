@@ -175,46 +175,39 @@ function touchEnded() {
 }
 
 function draw() {
-   if (introState === 3) {
+  if (introState === 3) {
+    subLayer2.blendMode(MULTIPLY);
+    subLayer1.blendMode(BLEND);
+    subLayer1.image(bgLayer1, 0, 0, width, height);
+    subLayer1.blendMode(LIGHTEST);
+    subLayer1.image(fgLayer1, 0, 0, vMax * 100, vMax * 100);
+    subLayer2.image(subLayer1, 0, 0, width, height);
+    subLayer1.blendMode(BLEND);
+    subLayer1.image(bgLayer2, 0, 0, width, height);
+    subLayer1.blendMode(LIGHTEST);
+    subLayer1.image(fgLayer2, 0, 0, vMax * 100, vMax * 100);
+    subLayer2.image(subLayer1, 0, 0, width, height);
+    subLayer1.blendMode(BLEND);
+    subLayer1.image(bgLayer3, 0, 0, width, height);
+    subLayer1.blendMode(LIGHTEST);
+    subLayer1.image(fgLayer3, 0, 0, vMax * 100, vMax * 100);
+    subLayer2.image(subLayer1, 0, 0, width, height);
+    background(255);
     if (drawingIsActive) {
-
-
-
-      subLayer2.blendMode(MULTIPLY);
-
-      subLayer1.blendMode(BLEND);
-      subLayer1.image(bgLayer1, 0, 0, width, height);
-      subLayer1.blendMode(LIGHTEST);
-      subLayer1.image(fgLayer1, 0, 0, vMax * 100, vMax * 100);
-      subLayer2.image(subLayer1, 0, 0, width, height);
-       subLayer1.blendMode(BLEND);
-       subLayer1.image(bgLayer2, 0, 0, width, height);
-       subLayer1.blendMode(LIGHTEST);
-       subLayer1.image(fgLayer2, 0, 0, vMax * 100, vMax * 100);
-      subLayer2.image(subLayer1, 0, 0, width, height);
-       subLayer1.blendMode(BLEND);
-      subLayer1.image(bgLayer3, 0, 0, width, height);
-       subLayer1.blendMode(LIGHTEST);
-       subLayer1.image(fgLayer3, 0, 0, vMax * 100, vMax * 100);
-      subLayer2.image(subLayer1, 0, 0, width, height);
-
-      blendMode(BLEND);
-      background(255);
-      blendMode(BLEND);
       image(subLayer2, 0, 0, width, height);
-      subLayer2.clear();
-
-    } else {
-      for (let i = 0; i < tileNum; i++) {
-        for (let j = 0; j < tileNum; j++) {
-              
-          blendMode(DARKEST);
-          image(subLayer2, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
+    } else if (!drawingIsActive) {
+      {
+        for (let i = 0; i < tileNum; i++) {
+          for (let j = 0; j < tileNum; j++) {
+            blendMode(DARKEST);
+            image(subLayer2, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
+          }
         }
+        blendMode(BLEND);
+        image(sliderImg, 0, 0, width, height);
       }
-      blendMode(BLEND);
-      image(sliderImg, 0, 0, width, height);
     }
+    subLayer2.clear();
   } else {
     blendMode(BLEND);
     background(241, 181, 0); // include an alphaTemp?
