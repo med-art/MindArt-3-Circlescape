@@ -175,7 +175,7 @@ function touchEnded() {
 }
 
 function draw() {
-  // if (introState === 3) {
+   if (introState === 3) {
   //   if (drawingIsActive) {
   //     blendMode(BLEND);
   //     background(255);
@@ -208,7 +208,7 @@ function draw() {
   //     }
   //     blendMode(BLEND);
   //     image(sliderImg, 0, 0, width, height);
-  //   }
+    // }
   } else {
     blendMode(BLEND);
     background(241, 181, 0); // include an alphaTemp?
