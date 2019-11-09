@@ -29,7 +29,7 @@ function slideShow() {
   }
   if (slide === introText.length) {
     textLayer.remove();
-    introElement.remove();
+    subLayer1.remove();
     introState = 3;
     makeSwatch();
     //windowResized();

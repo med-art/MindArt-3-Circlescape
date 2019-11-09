@@ -2,12 +2,12 @@ let lineArrayX = [];
 let lineArrayY = [];
 let bgLayer1, fgLayer1, subLayer1;
 let bgLayer2, fgLayer2, subLayer2;
-let bgLayer3, fgLayer3, subLayer3;
+let bgLayer3, fgLayer3;
 let bg;
 let drawingIsActive = 1;
 let tileNum = 2;
 let sliderImg;
-let introElement;
+
 let currentLayer = 1;
 let audio;
 let ellipseSize;
@@ -28,28 +28,27 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
-  textLayer = createGraphics(windowWidth, windowHeight);
-  bgLayer1 = createGraphics(windowWidth, windowHeight);
-  subLayer1 = createGraphics(windowWidth, windowHeight);
+  textLayer = createGraphics(width, height);
+  bgLayer1 = createGraphics(width, height);
+  subLayer1 = createGraphics(width, height);
   bgLayer1.background(255, 240, 245);
   bgLayer1.strokeWeight(12);
   bgLayer1.stroke(0);
   bgLayer1.noFill();
-  bgLayer2 = createGraphics(windowWidth, windowHeight);
-  subLayer2 = createGraphics(windowWidth, windowHeight);
+  bgLayer2 = createGraphics(width, height);
+  subLayer2 = createGraphics(width, height);
   bgLayer2.background(255);
   bgLayer2.strokeWeight(12);
   bgLayer2.stroke(0);
   bgLayer2.noFill();
-  bgLayer3 = createGraphics(windowWidth, windowHeight);
-  subLayer3 = createGraphics(windowWidth, windowHeight);
+  bgLayer3 = createGraphics(width, height);
+
   bgLayer3.background(255);
   bgLayer3.strokeWeight(12);
   bgLayer3.stroke(0);
   bgLayer3.noFill();
-  introLayer = createGraphics(windowWidth, windowHeight);
-  sliderImg = createGraphics(windowWidth, windowHeight);
-  introElement = createGraphics(windowWidth, windowHeight);
+  introLayer = createGraphics(width, height);
+  sliderImg = createGraphics(width, height);
   driftY = height / 3;
   ellipseSize = vMax * 20;
   arcRadius = vMin * 35;
@@ -225,15 +224,15 @@ function draw() {
       driftY += 1.1;
       textLayer.text(introText[slide - 1], width / 2, (height / 6) * (slide));
     }
-    image(introElement, 0, 0, width, height);
+    image(subLayer1, 0, 0, width, height);
     image(textLayer, 0, 0, width, height);
   }
 }
 
 function windowResized() {
-  paint.resizeCanvas(windowWidth, windowHeight);
-  sliderImg.resizeCanvas(windowWidth, windowHeight);
-  resizeCanvas(windowWidth, windowHeight);
+  paint.resizeCanvas(width, height);
+  sliderImg.resizeCanvas(width, height);
+  resizeCanvas(width, height);
   calcDimensions();
   removeElements();
   makeSwatch();
