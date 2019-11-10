@@ -106,22 +106,28 @@ function nextStep() {
     clear();
 
     if (stage === 0) {
-      fgLayer1 = loadImage('assets/s1-1.jpg');
-      fgLayer2 = loadImage('assets/s1-2.jpg');
-      fgLayer3 = loadImage('assets/s1-3.jpg');
-    } else if (stage === 0) {
-      fgLayer1 = loadImage('assets/s2-1.jpg');
-      fgLayer2 = loadImage('assets/s2-2.jpg');
-      fgLayer3 = loadImage('assets/s2-3.jpg');
+      fgLayer1 = loadImage('assets/s1-1.png');
+      fgLayer2 = loadImage('assets/s1-2.png');
+      fgLayer3 = loadImage('assets/s1-3.png');
+    } else if (stage === 1) {
+      fgLayer1 = loadImage('assets/s2-1.png');
+      fgLayer2 = loadImage('assets/s2-2.png');
+      fgLayer3 = loadImage('assets/s2-3.png');
     } else if (stage === 2) {
-      fgLayer1 = loadImage('assets/s3-1.jpg');
-      fgLayer2 = loadImage('assets/s3-2.jpg');
-      fgLayer3 = loadImage('assets/s3-3.jpg');
+      fgLayer1 = loadImage('assets/s3-1.png');
+      fgLayer2 = loadImage('assets/s3-2.png');
+      fgLayer3 = loadImage('assets/s3-3.png');
     } else if (stage === 3) {
-      fgLayer1 = loadImage('assets/s4-1.jpg');
-      fgLayer2 = loadImage('assets/s4-2.jpg');
-      fgLayer3 = loadImage('assets/s4-3.jpg');
+      fgLayer1 = loadImage('assets/s4-1.png');
+      fgLayer2 = loadImage('assets/s4-2.png');
+      fgLayer3 = loadImage('assets/s4-3.png');
     }
+    console.log(stage);
+    bgLayer1.stroke(swatchCol[stage*3]);
+    bgLayer2.stroke(swatchCol[(stage*3)+1]);
+    bgLayer3.stroke(swatchCol[(stage*3)+2]);
+
+
     makeSwatch();
     fsButton.remove();
     saveButton.remove();
@@ -133,6 +139,9 @@ function nextStep() {
 
 function changeBrush(layerSelected) {
   currentLayer = layerSelected;
+
+
+
   selColour.remove();
   selColour = createImg('assets/colSelected.png');
   selColour.position((15 + (8 * (layerSelected - 1))) * vMax, height - (16 * vMax));

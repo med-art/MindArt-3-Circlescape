@@ -16,10 +16,13 @@ let tempCosX, tempSinY;
 let introLayer;
 let alphaTemp = 0.02;
 
+let colArray = ['#2f4fa4', '#d54489', '#fce200', '#fce300', '#007b3d', '#479fdf', '#93338d', '#f16301', '#007b3d', '#fe8f1d', '#fce300'];
+let colSelected;
+
 function preload() {
-  fgLayer1 = loadImage('assets/s1-1.jpg');
-  fgLayer2 = loadImage('assets/s1-2.jpg');
-  fgLayer3 = loadImage('assets/s1-3.jpg');
+  fgLayer1 = loadImage('assets/s1-1.png');
+  fgLayer2 = loadImage('assets/s1-2.png');
+  fgLayer3 = loadImage('assets/s1-3.png');
   audio = loadSound('assets/audio_02.mp3');
   click = loadSound('assets/click.mp3');
   sliderIcon = loadImage('assets/slider.png')
@@ -34,19 +37,18 @@ function setup() {
   subLayer1 = createGraphics(width, height);
   bgLayer1.background(255, 240, 245);
   bgLayer1.strokeWeight(12);
-  bgLayer1.stroke(0);
+
   bgLayer1.noFill();
   bgLayer2 = createGraphics(width, height);
   subLayer2 = createGraphics(width, height);
   bgLayer2.background(255);
   bgLayer2.strokeWeight(12);
-  bgLayer2.stroke(0);
+
   bgLayer2.noFill();
   bgLayer3 = createGraphics(width, height);
   subLayer3 = createGraphics(width, height);
   bgLayer3.background(255);
   bgLayer3.strokeWeight(12);
-  bgLayer3.stroke(0);
   bgLayer3.noFill();
   introLayer = createGraphics(width, height);
   introLayer.blendMode(BLEND);
@@ -57,9 +59,7 @@ function setup() {
   arcRadius = vMin * 35;
   slide = 0;
   slideShow();
-  subLayer1.blendMode(LIGHTEST);
-  subLayer2.blendMode(LIGHTEST);
-  subLayer3.blendMode(LIGHTEST);
+
   //may need background fill.
 }
 
@@ -96,38 +96,6 @@ function touchMoved() {
     } else if (drawingIsActive && eraseBoolean) {
 
 
-      subLayer1.stroke(255);
-      subLayer1.strokeWeight(40);
-      subLayer1.line(mouseX, mouseY, pmouseX, pmouseY);
-      subLayer2.stroke(255);
-      subLayer2.strokeWeight(40);
-      subLayer2.line(mouseX, mouseY, pmouseX, pmouseY);
-      subLayer3.stroke(255);
-      subLayer3.strokeWeight(40);
-      subLayer3.line(mouseX, mouseY, pmouseX, pmouseY);
-
-      bgLayer1.stroke(255, 240, 245);
-      bgLayer1.strokeWeight(40);
-      bgLayer1.line(mouseX, mouseY, pmouseX, pmouseY);
-      bgLayer1.stroke(0);
-      bgLayer1.strokeWeight(12);
-      bgLayer2.stroke(255, 240, 245);
-
-      bgLayer2.strokeWeight(40);
-      bgLayer2.line(mouseX, mouseY, pmouseX, pmouseY);
-        bgLayer2.stroke(0);
-      bgLayer2.strokeWeight(12);
-
-      bgLayer3.stroke(255, 240, 245);
-      bgLayer3.strokeWeight(40);
-      bgLayer3.line(mouseX, mouseY, pmouseX, pmouseY);
-      bgLayer3.stroke(0);
-      bgLayer3.strokeWeight(12);
-
-      clear();
-      image(subLayer1, 0, 0, width, height);
-      image(subLayer2, 0, 0, width, height);
-      image(subLayer3, 0, 0, width, height);
 
 
     } else {
@@ -150,7 +118,7 @@ function touchEnded() {
   if (drawingIsActive) {
     if (currentLayer === 1) {
       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-        bgLayer1.fill(0);
+
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
         bgLayer1.beginShape();
@@ -180,7 +148,7 @@ function touchEnded() {
       bgLayer2.noFill();
     } else if (currentLayer === 3) {
       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-        bgLayer3.fill(0);
+
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
         bgLayer3.beginShape();
@@ -200,26 +168,28 @@ function touchEnded() {
 }
 
 function draw() {
-  console.log(frameRate());
+  console.log(currentLayer);
 
   if (introState === 3) {
     if (currentLayer === 1) {
-      subLayer1.clear();
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.image(fgLayer1, 0, 0, width, height);
-      image(subLayer1, 0, 0, width, height);
+
     } else if (currentLayer === 2) {
-      subLayer2.clear();
       subLayer2.image(bgLayer2, 0, 0, width, height);
       subLayer2.image(fgLayer2, 0, 0, width, height);
-      image(subLayer2, 0, 0, width, height);
+
     } else if (currentLayer === 3) {
-      subLayer3.clear();
       subLayer3.image(bgLayer3, 0, 0, width, height);
       subLayer3.image(fgLayer3, 0, 0, width, height);
-      image(subLayer3, 0, 0, width, height);
-    }
 
+    }
+      blendMode(BLEND);
+    background(255);
+      blendMode(DARKEST);
+  image(subLayer1, 0, 0, width, height);
+    image(subLayer2, 0, 0, width, height);
+      image(subLayer3, 0, 0, width, height);
 
 
 
