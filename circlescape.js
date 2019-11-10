@@ -15,7 +15,6 @@ let arcRadius;
 let tempCosX, tempSinY;
 let introLayer;
 let alphaTemp = 0.02;
-
 let colArray = ['#2f4fa4', '#d54489', '#fce200', '#fce300', '#007b3d', '#479fdf', '#93338d', '#f16301', '#007b3d', '#fe8f1d', '#fce300'];
 let colSelected;
 
@@ -37,13 +36,11 @@ function setup() {
   subLayer1 = createGraphics(width, height);
   bgLayer1.background(255, 240, 245);
   bgLayer1.strokeWeight(12);
-
   bgLayer1.noFill();
   bgLayer2 = createGraphics(width, height);
   subLayer2 = createGraphics(width, height);
   bgLayer2.background(255);
   bgLayer2.strokeWeight(12);
-
   bgLayer2.noFill();
   bgLayer3 = createGraphics(width, height);
   subLayer3 = createGraphics(width, height);
@@ -59,21 +56,16 @@ function setup() {
   arcRadius = vMin * 35;
   slide = 0;
   slideShow();
-
   //may need background fill.
 }
 
-function touchStarted(){
-  bgLayer1.beginShape();
-  bgLayer2.beginShape();
-  bgLayer3.beginShape();
-}
 
 function touchMoved() {
   if (introState === 3) {
     if (drawingIsActive && eraseBoolean === 0) {
       lineArrayX.push(winMouseX);
       lineArrayY.push(winMouseY);
+
       if (currentLayer === 1) {
         bgLayer1.beginShape();
         for (i = 0; i < lineArrayX.length; i++) {
@@ -93,16 +85,11 @@ function touchMoved() {
         }
         bgLayer3.endShape();
       }
-    } else if (drawingIsActive && eraseBoolean) {
-
-
-
-
-    } else {
+    } else if (drawingIsActive && eraseBoolean) {} else {
       tileNum = constrain(((height / (winMouseY + 20))), 1, 10);
       makeSlider(winMouseY);
     }
-   }
+  }
   //else {
   //   if (slide > 0) {
   //     if (dist(tempCosX, tempSinY, winMouseX, winMouseY) < ellipseSize / 2) {
@@ -119,7 +106,7 @@ function touchEnded() {
   if (drawingIsActive) {
     if (currentLayer === 1) {
       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-        bgLayer1.fill(swatchCol[stage*3]);
+        bgLayer1.fill(swatchCol[stage * 3]);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
         bgLayer1.beginShape();
@@ -134,7 +121,7 @@ function touchEnded() {
       bgLayer1.noFill();
     } else if (currentLayer === 2) {
       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-        bgLayer2.fill(swatchCol[(stage*3)+1])
+        bgLayer2.fill(swatchCol[(stage * 3) + 1])
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
         bgLayer2.beginShape();
@@ -149,7 +136,7 @@ function touchEnded() {
       bgLayer2.noFill();
     } else if (currentLayer === 3) {
       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-          bgLayer3.fill(swatchCol[(stage*3)+2])
+        bgLayer3.fill(swatchCol[(stage * 3) + 2])
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
         bgLayer3.beginShape();
@@ -169,43 +156,35 @@ function touchEnded() {
 }
 
 function draw() {
-  console.log(currentLayer);
-
   if (introState === 3) {
     if (currentLayer === 1) {
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.image(fgLayer1, 0, 0, width, height);
-
     } else if (currentLayer === 2) {
       subLayer2.image(bgLayer2, 0, 0, width, height);
       subLayer2.image(fgLayer2, 0, 0, width, height);
-
     } else if (currentLayer === 3) {
       subLayer3.image(bgLayer3, 0, 0, width, height);
       subLayer3.image(fgLayer3, 0, 0, width, height);
-
     }
-  blendMode(BLEND);
-  background(255);
-  blendMode(DARKEST);
-  image(subLayer1, 0, 0, width, height);
-  image(subLayer2, 0, 0, width, height);
-  image(subLayer3, 0, 0, width, height);
-
-
-
-
-   if (!drawingIsActive) {
-      {
-        blendMode(BLEND);
-        for (let i = 0; i < tileNum; i++) {
-          for (let j = 0; j < tileNum; j++) {
-                image(introLayer, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
-          }
-        }
-        image(sliderImg, 0, 0, width, height);
-      }
-    } }
+    blendMode(BLEND);
+    background(255);
+    blendMode(DARKEST);
+    image(subLayer1, 0, 0, width, height);
+    image(subLayer2, 0, 0, width, height);
+    image(subLayer3, 0, 0, width, height);
+    // if (!drawingIsActive) {
+    //    {
+    //      blendMode(BLEND);
+    //      for (let i = 0; i < tileNum; i++) {
+    //        for (let j = 0; j < tileNum; j++) {
+    //              image(introLayer, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
+    //        }
+    //      }
+    //      image(sliderImg, 0, 0, width, height);
+    //    }
+    //  }
+  }
   // else {
   //   blendMode(BLEND);
   //   background(241, 181, 0); // include an alphaTemp?
