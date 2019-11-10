@@ -157,22 +157,26 @@ function touchEnded() {
 
 function draw() {
   if (introState === 3) {
+
+    blendMode(DARKEST);
+
     if (currentLayer === 1) {
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.image(fgLayer1, 0, 0, width, height);
+        image(subLayer1, 0, 0, width, height);
     } else if (currentLayer === 2) {
       subLayer2.image(bgLayer2, 0, 0, width, height);
       subLayer2.image(fgLayer2, 0, 0, width, height);
+      image(subLayer2, 0, 0, width, height);
     } else if (currentLayer === 3) {
       subLayer3.image(bgLayer3, 0, 0, width, height);
       subLayer3.image(fgLayer3, 0, 0, width, height);
+        image(subLayer3, 0, 0, width, height);
     }
-    blendMode(BLEND);
-    background(255);
-    blendMode(DARKEST);
-    image(subLayer1, 0, 0, width, height);
-    image(subLayer2, 0, 0, width, height);
-    image(subLayer3, 0, 0, width, height);
+
+
+
+
     // if (!drawingIsActive) {
     //    {
     //      blendMode(BLEND);

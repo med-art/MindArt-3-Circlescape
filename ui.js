@@ -133,7 +133,9 @@ function nextStep() {
     saveButton.remove();
     newButton.remove();
     currentLayer = 1;
+
     blendMode(BLEND);
+    background(255);
   }
 }
 
