@@ -28,7 +28,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
-  frameRate(12);
+  frameRate(24);
   textLayer = createGraphics(width, height);
   bgLayer1 = createGraphics(width, height);
   subLayer1 = createGraphics(width, height);
@@ -115,7 +115,7 @@ function touchMoved() {
       bgLayer3.stroke(255, 240, 245);
       bgLayer3.strokeWeight(40);
       bgLayer3.line(mouseX, mouseY, pmouseX, pmouseY);
-            bgLayer3.stroke(0);
+      bgLayer3.stroke(0);
       bgLayer3.strokeWeight(12);
 
       clear();
@@ -196,22 +196,24 @@ function touchEnded() {
 function draw() {
 
   if (introState === 3) {
-    if (currentLayer === 1) {
+    // if (currentLayer === 1) {
       subLayer1.clear();
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.image(fgLayer1, 0, 0, lE, lE);
       image(subLayer1, 0, 0, width, height);
-    } else if (currentLayer === 2) {
-      subLayer2.clear();
-      subLayer2.image(bgLayer2, 0, 0, width, height);
-      subLayer2.image(fgLayer2, 0, 0, lE, lE);
-      image(subLayer2, 0, 0, width, height);
-    } else if (currentLayer === 3) {
-      subLayer3.clear();
-      subLayer3.image(bgLayer3, 0, 0, width, height);
-      subLayer3.image(fgLayer3, 0, 0, lE, lE);
-      image(subLayer3, 0, 0, width, height);
-    }
+    // } else if (currentLayer === 2) {
+    //   subLayer2.clear();
+    //   subLayer2.image(bgLayer2, 0, 0, width, height);
+    //   subLayer2.image(fgLayer2, 0, 0, lE, lE);
+    //   image(subLayer2, 0, 0, width, height);
+    // } else if (currentLayer === 3) {
+    //   subLayer3.clear();
+    //   subLayer3.image(bgLayer3, 0, 0, width, height);
+    //   subLayer3.image(fgLayer3, 0, 0, lE, lE);
+    //   image(subLayer3, 0, 0, width, height);
+    // }
+    //
+
 
 
 

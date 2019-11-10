@@ -96,12 +96,12 @@ function nextStep() {
     if (stage === 4) {
       stage = 0;
     }
-    bgLayer1.background(255);
-    bgLayer2.background(255);
-    bgLayer3.background(255);
-    subLayer1.background(255);
-    subLayer2.background(255);
-    subLayer3.background(255);
+    bgLayer1.background(255, 240, 245);
+    bgLayer2.background(255, 240, 245);
+    bgLayer3.background(255, 240, 245);
+    subLayer1.background(appBg);
+    subLayer2.background(appBg);
+    subLayer3.background(appBg);
     introLayer.clear();
     clear();
 
@@ -109,7 +109,7 @@ function nextStep() {
       fgLayer1 = loadImage('assets/s1-1.jpg');
       fgLayer2 = loadImage('assets/s1-2.jpg');
       fgLayer3 = loadImage('assets/s1-3.jpg');
-    } else if (stage === 1) {
+    } else if (stage === 0) {
       fgLayer1 = loadImage('assets/s2-1.jpg');
       fgLayer2 = loadImage('assets/s2-2.jpg');
       fgLayer3 = loadImage('assets/s2-3.jpg');
