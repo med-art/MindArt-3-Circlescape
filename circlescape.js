@@ -188,7 +188,7 @@ function draw() {
     blendMode(BLEND);
     background(255);
     if (drawingIsActive) {
-      //blendMode(MULTIPLY);
+      blendMode(DARKEST);
       image(subLayer1, 0, 0, width, height);
       image(subLayer2, 0, 0, width, height);
       image(subLayer3, 0, 0, width, height);
