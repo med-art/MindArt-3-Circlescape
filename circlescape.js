@@ -199,20 +199,20 @@ function draw() {
     // if (currentLayer === 1) {
       subLayer1.clear();
       subLayer1.image(bgLayer1, 0, 0, width, height);
-      subLayer1.image(fgLayer1, 0, 0, lE, lE);
+      subLayer1.image(fgLayer1, 0, 0, width, height);
       image(subLayer1, 0, 0, width, height);
-    // } else if (currentLayer === 2) {
-    //   subLayer2.clear();
-    //   subLayer2.image(bgLayer2, 0, 0, width, height);
-    //   subLayer2.image(fgLayer2, 0, 0, lE, lE);
-    //   image(subLayer2, 0, 0, width, height);
-    // } else if (currentLayer === 3) {
-    //   subLayer3.clear();
-    //   subLayer3.image(bgLayer3, 0, 0, width, height);
-    //   subLayer3.image(fgLayer3, 0, 0, lE, lE);
-    //   image(subLayer3, 0, 0, width, height);
-    // }
-    //
+    } else if (currentLayer === 2) {
+      subLayer2.clear();
+      subLayer2.image(bgLayer2, 0, 0, width, height);
+      subLayer2.image(fgLayer2, 0, 0, width, height);
+      image(subLayer2, 0, 0, width, height);
+    } else if (currentLayer === 3) {
+      subLayer3.clear();
+      subLayer3.image(bgLayer3, 0, 0, width, height);
+      subLayer3.image(fgLayer3, 0, 0, width, height);
+      image(subLayer3, 0, 0, width, height);
+    }
+
 
 
 
