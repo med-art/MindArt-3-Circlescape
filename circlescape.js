@@ -28,7 +28,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
-  frameRate(24);
+  //frameRate(24);
   textLayer = createGraphics(width, height);
   bgLayer1 = createGraphics(width, height);
   subLayer1 = createGraphics(width, height);
@@ -61,6 +61,12 @@ function setup() {
   subLayer2.blendMode(LIGHTEST);
   subLayer3.blendMode(LIGHTEST);
   //may need background fill.
+}
+
+function touchStarted(){
+  bgLayer1.beginShape();
+  bgLayer2.beginShape();
+  bgLayer3.beginShape();
 }
 
 function touchMoved() {
@@ -194,9 +200,10 @@ function touchEnded() {
 }
 
 function draw() {
+  console.log(frameRate());
 
   if (introState === 3) {
-    // if (currentLayer === 1) {
+    if (currentLayer === 1) {
       subLayer1.clear();
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.image(fgLayer1, 0, 0, width, height);
