@@ -80,6 +80,7 @@ function nextStep() {
   swatch2.remove();
   swatch3.remove();
   button.remove();
+
   selColour.remove();
   drawingIsActive = !drawingIsActive;
   if (!drawingIsActive) {
