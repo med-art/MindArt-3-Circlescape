@@ -86,6 +86,9 @@ function nextStep() {
   selColour.remove();
   drawingIsActive = !drawingIsActive;
   if (!drawingIsActive) {
+      introLayer.image(subLayer1, 0, 0, width, height);
+      introLayer.image(subLayer2, 0, 0, width, height);
+      introLayer.image(subLayer3, 0, 0, width, height);
     makeSlider(winMouseX);
   } else {
     stage++;
@@ -98,7 +101,7 @@ function nextStep() {
     subLayer1.background(appBg);
     subLayer2.background(appBg);
     subLayer3.background(appBg);
-        introLayer.clear();
+    introLayer.clear();
 
     if (stage === 0) {
       fgLayer1 = loadImage('assets/s1-1.jpg');
