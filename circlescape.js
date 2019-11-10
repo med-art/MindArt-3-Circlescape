@@ -190,8 +190,8 @@ function draw() {
     if (drawingIsActive) {
       //blendMode(MULTIPLY);
       image(subLayer1, 0, 0, width, height);
-      // image(subLayer2, 0, 0, width, height);
-      // image(subLayer3, 0, 0, width, height);
+      image(subLayer2, 0, 0, width, height);
+      image(subLayer3, 0, 0, width, height);
     } else if (!drawingIsActive) {
       {
         for (let i = 0; i < tileNum; i++) {
