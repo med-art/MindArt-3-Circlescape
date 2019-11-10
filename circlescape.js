@@ -188,10 +188,10 @@ function draw() {
     blendMode(BLEND);
     background(255);
     if (drawingIsActive) {
-      blendMode(MULTIPLY);
+      //blendMode(MULTIPLY);
       image(subLayer1, 0, 0, width, height);
-      image(subLayer2, 0, 0, width, height);
-      image(subLayer3, 0, 0, width, height);
+      // image(subLayer2, 0, 0, width, height);
+      // image(subLayer3, 0, 0, width, height);
     } else if (!drawingIsActive) {
       {
         for (let i = 0; i < tileNum; i++) {
@@ -207,7 +207,6 @@ function draw() {
       }
     }
   } else {
-    console.log("see me?")
     blendMode(BLEND);
     background(241, 181, 0); // include an alphaTemp?
     if (slide > 0) {
