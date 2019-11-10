@@ -80,6 +80,7 @@ function saveNext() {
 }
 
 function nextStep() {
+    click.play();
   swatch1.remove();
   swatch2.remove();
   swatch3.remove();
@@ -140,6 +141,7 @@ function nextStep() {
 }
 
 function changeBrush(layerSelected) {
+    click.play();
   currentLayer = layerSelected;
 
 
@@ -178,6 +180,7 @@ function makeSlider(_mouseX) {
 }
 
 function saveImg() {
+    click.play();
   blendMode(BLEND);
   save('linescape' + month() + day() + hour() + second() + '.jpg');
 }
@@ -193,6 +196,7 @@ function fs() {
 }
 
 function makeErase() {
+    click.play();
   selColour.remove();
   button.remove();
   button = createImg('assets/eraseOn.png');

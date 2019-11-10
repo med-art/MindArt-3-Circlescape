@@ -32,7 +32,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
-  //frameRate(24);
+  frameRate(34);
   textLayer = createGraphics(width, height);
   bgLayer1 = createGraphics(width, height);
   subLayer1 = createGraphics(width, height);
@@ -114,7 +114,7 @@ function touchMoved() {
 function touchEnded() {
   if (drawingIsActive) {
     if (currentLayer === 1) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 350) {
         bgLayer1.fill(swatchCol[stage * 3]);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -129,7 +129,7 @@ function touchEnded() {
       lineArrayY = [];
       bgLayer1.noFill();
     } else if (currentLayer === 2) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 350) {
         bgLayer2.fill(swatchCol[(stage * 3) + 1])
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -144,7 +144,7 @@ function touchEnded() {
       lineArrayY = [];
       bgLayer2.noFill();
     } else if (currentLayer === 3) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 350) {
         bgLayer3.fill(swatchCol[(stage * 3) + 2])
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
