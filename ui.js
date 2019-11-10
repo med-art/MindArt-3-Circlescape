@@ -10,6 +10,7 @@ let lE;
 
 function calcDimensions() {
   vW = width / 100;
+  hMax = height/100;
   if (width > height) {
     vMax = width / 100;
     vMin = height / 100;
@@ -95,13 +96,14 @@ function nextStep() {
     if (stage === 4) {
       stage = 0;
     }
-    bgLayer1.background(255, 240, 245);
-    bgLayer2.background(255, 240, 245);
-    bgLayer3.background(255, 240, 245);
-    subLayer1.background(appBg);
-    subLayer2.background(appBg);
-    subLayer3.background(appBg);
+    bgLayer1.background(255);
+    bgLayer2.background(255);
+    bgLayer3.background(255);
+    subLayer1.background(255);
+    subLayer2.background(255);
+    subLayer3.background(255);
     introLayer.clear();
+    clear();
 
     if (stage === 0) {
       fgLayer1 = loadImage('assets/s1-1.jpg');
@@ -146,16 +148,15 @@ function changeBrush(layerSelected) {
 
 function makeSlider(_mouseX) {
   sliderImg.clear();
-  sliderImg.stroke("#f1b300");
-  sliderImg.strokeWeight(8);
-  sliderImg.line(width * 0.04, height - (6 * vMax), width * 0.75, height - (6 * vMax));
-  sliderImg.stroke("#f1b300");
-  sliderImg.strokeWeight(30);
-  sliderImg.line(50, height - (6 * vMax), constrain(_mouseX, width * 0.04, width * 0.75), height - (6 * vMax));
-  sliderImg.rectMode(RADIUS);
-  sliderImg.fill("#5cf22c");
-  sliderImg.noStroke();
-  sliderImg.rect(constrain(_mouseX, width * 0.04, width * 0.75), height - (6 * vMax), 1 * vMax, 5 * vMax);
+  sliderImg.stroke(255);
+  sliderImg.strokeWeight(9*hMax);
+  sliderImg.line(8 * hMax, 8 * hMax, 8*hMax, height - (8 * hMax));
+  sliderImg.stroke("#5cf22c");
+  sliderImg.strokeWeight(9*hMax);
+  sliderImg.line(8 * hMax, 8 * hMax, 8*hMax, constrain(mouseY, 8*hMax, height - (8 * hMax)));
+  sliderImg.imageMode(CENTER);
+  sliderImg.image(sliderIcon, 8*hMax, constrain(mouseY, 8*hMax, height - (8 * hMax)), 8.5*hMax, 8.5*hMax);
+
 }
 
 function saveImg() {

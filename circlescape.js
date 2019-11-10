@@ -22,6 +22,7 @@ function preload() {
   fgLayer3 = loadImage('assets/s1-3.jpg');
   audio = loadSound('assets/audio_02.mp3');
   click = loadSound('assets/click.mp3');
+  sliderIcon = loadImage('assets/slider.png')
 }
 
 function setup() {
@@ -102,9 +103,46 @@ function touchMoved() {
       // bgLayer1.stroke(0);
       // bgLayer2.stroke(0);
       // bgLayer3.stroke(0);
+
+      subLayer1.fill(255);
+      subLayer1.noStroke();
+      subLayer1.ellipse(mouseX, mouseY, 100, 100);
+      subLayer1.stroke(12);
+      subLayer2.fill(255);
+      subLayer2.noStroke();
+      subLayer2.ellipse(mouseX, mouseY, 100, 100);
+      subLayer2.stroke(12);
+      subLayer3.fill(255);
+      subLayer3.noStroke();
+      subLayer3.ellipse(mouseX, mouseY, 100, 100);
+      subLayer3.stroke(12);
+
+
+      bgLayer1.fill(255, 240, 245);
+      bgLayer1.noStroke();
+      bgLayer1.ellipse(mouseX, mouseY, 100, 100);
+      bgLayer1.stroke(12);
+
+      bgLayer2.fill(255, 240, 245);
+      bgLayer2.noStroke();
+      bgLayer2.ellipse(mouseX, mouseY, 100, 100);
+      bgLayer2.stroke(12);
+
+
+      bgLayer3.fill(255, 240, 245);
+      bgLayer3.noStroke();
+      bgLayer3.ellipse(mouseX, mouseY, 100, 100);
+      bgLayer3.stroke(12);
+
+      clear();
+      image(subLayer1, 0, 0, width, height);
+      image(subLayer2, 0, 0, width, height);
+      image(subLayer3, 0, 0, width, height);
+
+
     } else {
-      tileNum = constrain(((width / (winMouseX + 20))), 1, 10);
-      makeSlider(winMouseX);
+      tileNum = constrain(((height / (winMouseY + 20))), 1, 10);
+      makeSlider(winMouseY);
     }
   } else {
     if (slide > 0) {
@@ -172,6 +210,7 @@ function touchEnded() {
 }
 
 function draw() {
+
   if (introState === 3) {
     if (currentLayer === 1) {
       subLayer1.clear();
