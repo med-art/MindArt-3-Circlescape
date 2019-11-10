@@ -46,7 +46,7 @@ function slideShow() {
         delayTime = 1000;
       }
       slide++;
-      console.log(slide);
+
       setTimeout(slideShow, delayTime);
     }
   }

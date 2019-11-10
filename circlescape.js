@@ -28,10 +28,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
   textLayer = createGraphics(width, height);
-
   bgLayer1 = createGraphics(width, height);
   subLayer1 = createGraphics(width, height);
-
   bgLayer1.background(255, 240, 245);
   bgLayer1.strokeWeight(12);
   bgLayer1.stroke(0);
@@ -54,13 +52,13 @@ function setup() {
   strokeWeight(10);
   ellipseSize = vMax * 20;
   arcRadius = vMin * 35;
-  slide = 0;
-  slideShow();
-
+  slide = 4;
+  //slideShow();
+  introState = 3;
+  makeSwatch();
   subLayer1.blendMode(LIGHTEST);
   subLayer2.blendMode(LIGHTEST);
   subLayer3.blendMode(LIGHTEST);
-
   //may need background fill.
 }
 
@@ -176,22 +174,19 @@ function touchEnded() {
 function draw() {
   if (introState === 3) {
     if (currentLayer === 1) {
-
       subLayer1.clear();
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.image(fgLayer1, 0, 0, lE, lE);
-
     } else if (currentLayer === 2) {
       subLayer2.clear();
       subLayer2.image(bgLayer2, 0, 0, width, height);
-        subLayer2.image(fgLayer2, 0, 0, lE, lE);
+      subLayer2.image(fgLayer2, 0, 0, lE, lE);
     } else if (currentLayer === 3) {
-      subLayer3.blendMode(BLEND);
+      subLayer3.clear();
       subLayer3.image(bgLayer3, 0, 0, width, height);
-      subLayer3.blendMode(LIGHTEST);
       subLayer3.image(fgLayer3, 0, 0, lE, lE);
     }
-      clear();
+    clear();
     background(255);
     if (drawingIsActive) {
       image(subLayer1, 0, 0, width, height);
@@ -211,7 +206,6 @@ function draw() {
         image(sliderImg, 0, 0, width, height);
       }
     }
-
   } else {
     blendMode(BLEND);
     background(241, 181, 0); // include an alphaTemp?
@@ -231,7 +225,6 @@ function draw() {
     image(textLayer, 0, 0, width, height);
   }
 }
-
 // function windowResized() {
 //
 //   sliderImg.resizeCanvas(width, height);
