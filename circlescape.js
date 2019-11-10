@@ -96,7 +96,7 @@ function touchMoved() {
       line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
 
     } else {
-      tileNum = constrain(((height / (winMouseY + 20))), 1, 10);
+        tileNum = constrain(((height / (winMouseY + 20))), 1, 10);
       makeSlider(winMouseY);
     }
   } else {
@@ -182,6 +182,7 @@ function draw() {
     }
     if (!drawingIsActive) {
       {
+
         blendMode(BLEND);
         for (let i = 0; i < tileNum; i++) {
           for (let j = 0; j < tileNum; j++) {
@@ -234,19 +235,7 @@ function windowResized() {
   if (introState === 3){
 
 
-
-    let fgLayer1New = createGraphics(windowWidth, windowHeight);
-    fgLayer1New.image(fgLayer1,0,0,windowWidth, windowHeight);
-    fgLayer1.resizeCanvas(windowWidth, windowHeight);
-    fgLayer1 = fgLayer1New;
-    let fgLayer2New = createGraphics(windowWidth, windowHeight);
-    fgLayer2New.image(fgLayer2,0,0,windowWidth, windowHeight);
-    fgLayer2.resizeCanvas(windowWidth, windowHeight);
-    fgLayer2 = fgLayer2New;
-    let fgLayer3New = createGraphics(windowWidth, windowHeight);
-    fgLayer3New.image(fgLayer3,0,0,windowWidth, windowHeight);
-    fgLayer3.resizeCanvas(windowWidth, windowHeight);
-    fgLayer3 = fgLayer3New;
+    resizeCanvas(windowWidth, windowHeight);
     let bgLayer1New = createGraphics(windowWidth, windowHeight);
     bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
     bgLayer1.resizeCanvas(windowWidth, windowHeight);
@@ -271,19 +260,35 @@ function windowResized() {
     subLayer3New.image(subLayer3,0,0,windowWidth, windowHeight);
     subLayer3.resizeCanvas(windowWidth, windowHeight);
     subLayer3 = subLayer3New;
-
-
-
     textLayer.resizeCanvas(windowWidth, windowHeight);
-    sliderImg.resizeCanvas(windowWidth, windowHeight);
-    calcDimensions();
-    removeElements();
 
+
+  calcDimensions();
     saveNext();
 
-    if (!gridVStextureBool){
+
+
+    if (drawingIsActive){
+      removeElements();
         makeSwatch();
+        blendMode(BLEND);
+          background(255);
+          blendMode(DARKEST);
+          image(subLayer1, windowWidth, windowHeight);
+          image(subLayer2, windowWidth, windowHeight);
+          image(subLayer3, windowWidth, windowHeight);
     }
+
+    else {
+      blendMode(BLEND);
+  background(255);
+      sliderImg.clear();
+      introLayer.resizeCanvas(windowWidth, windowHeight);
+    }
+
+
+
+
   }
 
 
