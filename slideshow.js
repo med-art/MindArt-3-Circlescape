@@ -35,7 +35,13 @@ function slideShow() {
     introLayer.clear();
     introLayer.blendMode(DARKEST);
     counter = 0;
-    slide = 4; // effectively will switch off slideshow.
+    slide = 4;
+    blendMode(BLEND);
+    background(255);
+    bgLayer1.stroke(swatchCol[0]);
+    bgLayer2.stroke(swatchCol[1]);
+    bgLayer3.stroke(swatchCol[2]);
+
   } else if (slide < introText.length && slide > 0) {
     textLayer.clear();
     textLayer.fill(255, 5);

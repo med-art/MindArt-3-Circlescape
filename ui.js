@@ -155,6 +155,13 @@ function changeBrush(layerSelected) {
   button.size(14 * vMax, 14 * vMax);
   button.mousePressed(makeErase);
   eraseBoolean = 0;
+
+  bgLayer1.stroke(swatchCol[stage*3]);
+  bgLayer2.stroke(swatchCol[(stage*3)+1]);
+  bgLayer3.stroke(swatchCol[(stage*3)+2]);
+  bgLayer1.strokeWeight(12);
+  bgLayer2.strokeWeight(12);
+  bgLayer3.strokeWeight(12);
 }
 
 function makeSlider(_mouseX) {
@@ -193,4 +200,11 @@ function makeErase() {
   button.size(14 * vMax, 14 * vMax);
   button.mousePressed(makeErase);
   eraseBoolean = 1;
+
+  bgLayer1.stroke(255);
+  bgLayer2.stroke(255);
+  bgLayer3.stroke(255);
+  bgLayer1.strokeWeight(100);
+  bgLayer2.strokeWeight(100);
+  bgLayer3.strokeWeight(100);
 }
