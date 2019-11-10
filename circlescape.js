@@ -164,7 +164,7 @@ function touchEnded() {
     }
   }
   alphaTemp = 0;
-  //  return false;
+  blendMode(DARKEST);
 }
 
 function draw() {
@@ -185,10 +185,9 @@ function draw() {
       subLayer3.blendMode(LIGHTEST);
       subLayer3.image(fgLayer3, 0, 0, lE, lE);
     }
-    blendMode(BLEND);
+      clear();
     background(255);
     if (drawingIsActive) {
-      blendMode(DARKEST);
       image(subLayer1, 0, 0, width, height);
       image(subLayer2, 0, 0, width, height);
       image(subLayer3, 0, 0, width, height);
@@ -206,6 +205,7 @@ function draw() {
         image(sliderImg, 0, 0, width, height);
       }
     }
+
   } else {
     blendMode(BLEND);
     background(241, 181, 0); // include an alphaTemp?
