@@ -102,15 +102,16 @@ function touchMoved() {
       tileNum = constrain(((height / (winMouseY + 20))), 1, 10);
       makeSlider(winMouseY);
     }
-  } else {
-    if (slide > 0) {
-      if (dist(tempCosX, tempSinY, winMouseX, winMouseY) < ellipseSize / 2) {
-        ellipseSize = ellipseSize * 0.999;
-        arcRadius = arcRadius * 0.9995;
-        alphaTemp = 0.02;
-      }
-    }
-  }
+   }
+  //else {
+  //   if (slide > 0) {
+  //     if (dist(tempCosX, tempSinY, winMouseX, winMouseY) < ellipseSize / 2) {
+  //       ellipseSize = ellipseSize * 0.999;
+  //       arcRadius = arcRadius * 0.9995;
+  //       alphaTemp = 0.02;
+  //     }
+  //   }
+  // }
   return false;
 }
 
@@ -118,7 +119,7 @@ function touchEnded() {
   if (drawingIsActive) {
     if (currentLayer === 1) {
       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-
+        bgLayer1.fill(swatchCol[stage*3]);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
         bgLayer1.beginShape();
@@ -133,7 +134,7 @@ function touchEnded() {
       bgLayer1.noFill();
     } else if (currentLayer === 2) {
       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-        bgLayer2.fill(0);
+        bgLayer2.fill(swatchCol[(stage*3)+1])
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
         bgLayer2.beginShape();
@@ -148,7 +149,7 @@ function touchEnded() {
       bgLayer2.noFill();
     } else if (currentLayer === 3) {
       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-
+          bgLayer3.fill(swatchCol[(stage*3)+2])
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
         bgLayer3.beginShape();
@@ -184,12 +185,12 @@ function draw() {
       subLayer3.image(fgLayer3, 0, 0, width, height);
 
     }
-      blendMode(BLEND);
-    background(255);
-      blendMode(DARKEST);
+  blendMode(BLEND);
+  background(255);
+  blendMode(DARKEST);
   image(subLayer1, 0, 0, width, height);
-    image(subLayer2, 0, 0, width, height);
-      image(subLayer3, 0, 0, width, height);
+  image(subLayer2, 0, 0, width, height);
+  image(subLayer3, 0, 0, width, height);
 
 
 
@@ -204,25 +205,25 @@ function draw() {
         }
         image(sliderImg, 0, 0, width, height);
       }
-    }
-  } else {
-    blendMode(BLEND);
-    background(241, 181, 0); // include an alphaTemp?
-    if (slide > 0) {
-      tempCosX = (arcRadius * cos(radians(driftY / 3))) + width / 2;
-      tempSinY = (arcRadius * sin(radians(driftY / 3))) + height / 2;
-      fill('#469ede');
-      stroke(255, 255, 255, 50);
-      ellipse(width / 2, height / 2, arcRadius * 2, arcRadius * 2);
-      stroke('#469ede');
-      fill(255, 255, 255, 100);
-      ellipse(tempCosX, tempSinY, ellipseSize, ellipseSize);
-      driftY += 1.1;
-      textLayer.text(introText[slide - 1], width / 2, (height / 6) * (slide));
-    }
-    image(subLayer1, 0, 0, width, height);
-    image(textLayer, 0, 0, width, height);
-  }
+    } }
+  // else {
+  //   blendMode(BLEND);
+  //   background(241, 181, 0); // include an alphaTemp?
+  //   if (slide > 0) {
+  //     tempCosX = (arcRadius * cos(radians(driftY / 3))) + width / 2;
+  //     tempSinY = (arcRadius * sin(radians(driftY / 3))) + height / 2;
+  //     fill('#469ede');
+  //     stroke(255, 255, 255, 50);
+  //     ellipse(width / 2, height / 2, arcRadius * 2, arcRadius * 2);
+  //     stroke('#469ede');
+  //     fill(255, 255, 255, 100);
+  //     ellipse(tempCosX, tempSinY, ellipseSize, ellipseSize);
+  //     driftY += 1.1;
+  //     textLayer.text(introText[slide - 1], width / 2, (height / 6) * (slide));
+  //   }
+  //   image(subLayer1, 0, 0, width, height);
+  //   image(textLayer, 0, 0, width, height);
+  // }
 }
 // function windowResized() {
 //
