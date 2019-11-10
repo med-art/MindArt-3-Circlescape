@@ -27,6 +27,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
+
   textLayer = createGraphics(width, height);
   bgLayer1 = createGraphics(width, height);
   subLayer1 = createGraphics(width, height);
@@ -86,25 +87,21 @@ function touchMoved() {
         bgLayer3.endShape();
       }
     } else if (drawingIsActive && eraseBoolean) {
-      bgLayer1.noStroke();
-      bgLayer1.fill(255);
-      bgLayer2.noStroke();
-      bgLayer2.fill(255);
-      bgLayer3.noStroke();
-      bgLayer3.fill(255);
-      introLayer.noStroke();
-    introLayer.fill(255);
-      bgLayer1.circle(winMouseX, winMouseY, 100, 100);
-      bgLayer2.circle(winMouseX, winMouseY, 100, 100);
-      bgLayer3.circle(winMouseX, winMouseY, 100, 100);
-
-      introLayer.circle(winMouseX, winMouseY, 100, 100);
-      bgLayer1.stroke(0);
-      bgLayer2.stroke(0);
-      bgLayer3.stroke(0);
-      bgLayer1.noFill();
-      bgLayer2.noFill();
-      bgLayer3.noFill();
+      // bgLayer1.noStroke();
+      // bgLayer1.fill(255);
+      // bgLayer2.noStroke();
+      // bgLayer2.fill(255);
+      // bgLayer3.noStroke();
+      // bgLayer3.fill(255);
+      // introLayer.noStroke();
+      // introLayer.fill(255);
+      // bgLayer1.circle(winMouseX, winMouseY, 100, 100);
+      // bgLayer2.circle(winMouseX, winMouseY, 100, 100);
+      // bgLayer3.circle(winMouseX, winMouseY, 100, 100);
+      // introLayer.circle(winMouseX, winMouseY, 100, 100);
+      // bgLayer1.stroke(0);
+      // bgLayer2.stroke(0);
+      // bgLayer3.stroke(0);
     } else {
       tileNum = constrain(((width / (winMouseX + 20))), 1, 10);
       makeSlider(winMouseX);
@@ -121,58 +118,58 @@ function touchMoved() {
   return false;
 }
 
-function touchEnded() {
-  if (drawingIsActive) {
-    if (currentLayer === 1) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-        bgLayer1.fill(0);
-        lineArrayX.push(lineArrayX[0]);
-        lineArrayY.push(lineArrayY[0]);
-        bgLayer1.beginShape();
-        for (i = 0; i < lineArrayX.length; i++) {
-          bgLayer1.curveVertex(lineArrayX[i], lineArrayY[i]);
-        }
-        bgLayer1.curveVertex(lineArrayX[0], lineArrayY[0]);
-        bgLayer1.endShape();
-      }
-      lineArrayX = [];
-      lineArrayY = [];
-      bgLayer1.noFill();
-    } else if (currentLayer === 2) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-        bgLayer2.fill(0);
-        lineArrayX.push(lineArrayX[0]);
-        lineArrayY.push(lineArrayY[0]);
-        bgLayer2.beginShape();
-        for (i = 0; i < lineArrayX.length; i++) {
-          bgLayer2.curveVertex(lineArrayX[i], lineArrayY[i]);
-        }
-        bgLayer2.curveVertex(lineArrayX[0], lineArrayY[0]);
-        bgLayer2.endShape();
-      }
-      lineArrayX = [];
-      lineArrayY = [];
-      bgLayer2.noFill();
-    } else if (currentLayer === 3) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-        bgLayer3.fill(0);
-        lineArrayX.push(lineArrayX[0]);
-        lineArrayY.push(lineArrayY[0]);
-        bgLayer3.beginShape();
-        for (i = 0; i < lineArrayX.length; i++) {
-          bgLayer3.curveVertex(lineArrayX[i], lineArrayY[i]);
-        }
-        bgLayer3.curveVertex(lineArrayX[0], lineArrayY[0]);
-        bgLayer3.endShape();
-      }
-      lineArrayX = [];
-      lineArrayY = [];
-      bgLayer3.noFill();
-    }
-  }
-  alphaTemp = 0;
-  blendMode(DARKEST);
-}
+// function touchEnded() {
+//   if (drawingIsActive) {
+//     if (currentLayer === 1) {
+//       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+//         bgLayer1.fill(0);
+//         lineArrayX.push(lineArrayX[0]);
+//         lineArrayY.push(lineArrayY[0]);
+//         bgLayer1.beginShape();
+//         for (i = 0; i < lineArrayX.length; i++) {
+//           bgLayer1.curveVertex(lineArrayX[i], lineArrayY[i]);
+//         }
+//         bgLayer1.curveVertex(lineArrayX[0], lineArrayY[0]);
+//         bgLayer1.endShape();
+//       }
+//       lineArrayX = [];
+//       lineArrayY = [];
+//       bgLayer1.noFill();
+//     } else if (currentLayer === 2) {
+//       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+//         bgLayer2.fill(0);
+//         lineArrayX.push(lineArrayX[0]);
+//         lineArrayY.push(lineArrayY[0]);
+//         bgLayer2.beginShape();
+//         for (i = 0; i < lineArrayX.length; i++) {
+//           bgLayer2.curveVertex(lineArrayX[i], lineArrayY[i]);
+//         }
+//         bgLayer2.curveVertex(lineArrayX[0], lineArrayY[0]);
+//         bgLayer2.endShape();
+//       }
+//       lineArrayX = [];
+//       lineArrayY = [];
+//       bgLayer2.noFill();
+//     } else if (currentLayer === 3) {
+//       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+//         bgLayer3.fill(0);
+//         lineArrayX.push(lineArrayX[0]);
+//         lineArrayY.push(lineArrayY[0]);
+//         bgLayer3.beginShape();
+//         for (i = 0; i < lineArrayX.length; i++) {
+//           bgLayer3.curveVertex(lineArrayX[i], lineArrayY[i]);
+//         }
+//         bgLayer3.curveVertex(lineArrayX[0], lineArrayY[0]);
+//         bgLayer3.endShape();
+//       }
+//       lineArrayX = [];
+//       lineArrayY = [];
+//       bgLayer3.noFill();
+//     }
+//   }
+//   alphaTemp = 0;
+//   blendMode(DARKEST);
+// }
 
 function draw() {
   if (introState === 3) {
