@@ -84,22 +84,15 @@ function touchMoved() {
         bgLayer3.endShape();
       }
     } else if (drawingIsActive && eraseBoolean) {
-      
+
       bgLayer1.line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
       bgLayer2.line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
       bgLayer3.line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
       blendMode(BLEND);
-      background(255);
-      blendMode(DARKEST);
-      subLayer1.image(bgLayer1, 0, 0, width, height);
-      subLayer1.image(fgLayer1, 0, 0, width, height);
-      image(subLayer1, 0, 0, width, height);
-      subLayer2.image(bgLayer2, 0, 0, width, height);
-      subLayer2.image(fgLayer2, 0, 0, width, height);
-      image(subLayer2, 0, 0, width, height);
-      subLayer3.image(bgLayer3, 0, 0, width, height);
-      subLayer3.image(fgLayer3, 0, 0, width, height);
-      image(subLayer3, 0, 0, width, height);
+      strokeWeight(100);
+      stroke(255,20);
+      line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
+
     } else {
       tileNum = constrain(((height / (winMouseY + 20))), 1, 10);
       makeSlider(winMouseY);
