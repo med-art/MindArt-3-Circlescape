@@ -27,6 +27,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
+  frameRate(20);
 
   textLayer = createGraphics(width, height);
   bgLayer1 = createGraphics(width, height);
@@ -118,58 +119,58 @@ function touchMoved() {
   return false;
 }
 
-// function touchEnded() {
-//   if (drawingIsActive) {
-//     if (currentLayer === 1) {
-//       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-//         bgLayer1.fill(0);
-//         lineArrayX.push(lineArrayX[0]);
-//         lineArrayY.push(lineArrayY[0]);
-//         bgLayer1.beginShape();
-//         for (i = 0; i < lineArrayX.length; i++) {
-//           bgLayer1.curveVertex(lineArrayX[i], lineArrayY[i]);
-//         }
-//         bgLayer1.curveVertex(lineArrayX[0], lineArrayY[0]);
-//         bgLayer1.endShape();
-//       }
-//       lineArrayX = [];
-//       lineArrayY = [];
-//       bgLayer1.noFill();
-//     } else if (currentLayer === 2) {
-//       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-//         bgLayer2.fill(0);
-//         lineArrayX.push(lineArrayX[0]);
-//         lineArrayY.push(lineArrayY[0]);
-//         bgLayer2.beginShape();
-//         for (i = 0; i < lineArrayX.length; i++) {
-//           bgLayer2.curveVertex(lineArrayX[i], lineArrayY[i]);
-//         }
-//         bgLayer2.curveVertex(lineArrayX[0], lineArrayY[0]);
-//         bgLayer2.endShape();
-//       }
-//       lineArrayX = [];
-//       lineArrayY = [];
-//       bgLayer2.noFill();
-//     } else if (currentLayer === 3) {
-//       if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
-//         bgLayer3.fill(0);
-//         lineArrayX.push(lineArrayX[0]);
-//         lineArrayY.push(lineArrayY[0]);
-//         bgLayer3.beginShape();
-//         for (i = 0; i < lineArrayX.length; i++) {
-//           bgLayer3.curveVertex(lineArrayX[i], lineArrayY[i]);
-//         }
-//         bgLayer3.curveVertex(lineArrayX[0], lineArrayY[0]);
-//         bgLayer3.endShape();
-//       }
-//       lineArrayX = [];
-//       lineArrayY = [];
-//       bgLayer3.noFill();
-//     }
-//   }
-//   alphaTemp = 0;
-//   blendMode(DARKEST);
-// }
+function touchEnded() {
+  if (drawingIsActive) {
+    if (currentLayer === 1) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+        bgLayer1.fill(0);
+        lineArrayX.push(lineArrayX[0]);
+        lineArrayY.push(lineArrayY[0]);
+        bgLayer1.beginShape();
+        for (i = 0; i < lineArrayX.length; i++) {
+          bgLayer1.curveVertex(lineArrayX[i], lineArrayY[i]);
+        }
+        bgLayer1.curveVertex(lineArrayX[0], lineArrayY[0]);
+        bgLayer1.endShape();
+      }
+      lineArrayX = [];
+      lineArrayY = [];
+      bgLayer1.noFill();
+    } else if (currentLayer === 2) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+        bgLayer2.fill(0);
+        lineArrayX.push(lineArrayX[0]);
+        lineArrayY.push(lineArrayY[0]);
+        bgLayer2.beginShape();
+        for (i = 0; i < lineArrayX.length; i++) {
+          bgLayer2.curveVertex(lineArrayX[i], lineArrayY[i]);
+        }
+        bgLayer2.curveVertex(lineArrayX[0], lineArrayY[0]);
+        bgLayer2.endShape();
+      }
+      lineArrayX = [];
+      lineArrayY = [];
+      bgLayer2.noFill();
+    } else if (currentLayer === 3) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 250) {
+        bgLayer3.fill(0);
+        lineArrayX.push(lineArrayX[0]);
+        lineArrayY.push(lineArrayY[0]);
+        bgLayer3.beginShape();
+        for (i = 0; i < lineArrayX.length; i++) {
+          bgLayer3.curveVertex(lineArrayX[i], lineArrayY[i]);
+        }
+        bgLayer3.curveVertex(lineArrayX[0], lineArrayY[0]);
+        bgLayer3.endShape();
+      }
+      lineArrayX = [];
+      lineArrayY = [];
+      bgLayer3.noFill();
+    }
+  }
+  alphaTemp = 0;
+  blendMode(DARKEST);
+}
 
 function draw() {
   if (introState === 3) {
@@ -194,14 +195,12 @@ function draw() {
 
    if (!drawingIsActive) {
       {
-          blendMode(BLEND);
+        blendMode(BLEND);
         for (let i = 0; i < tileNum; i++) {
           for (let j = 0; j < tileNum; j++) {
-
                 image(introLayer, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
           }
         }
-
         image(sliderImg, 0, 0, width, height);
       }
     }
