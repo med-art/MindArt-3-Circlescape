@@ -122,7 +122,7 @@ function nextStep() {
       fgLayer2 = loadImage('assets/s4-2.png');
       fgLayer3 = loadImage('assets/s4-3.png');
     }
-    console.log(stage);
+
     bgLayer1.stroke(swatchCol[stage*3]);
     bgLayer2.stroke(swatchCol[(stage*3)+1]);
     bgLayer3.stroke(swatchCol[(stage*3)+2]);
