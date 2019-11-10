@@ -28,7 +28,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
-  frameRate(20);
+  frameRate(12);
   textLayer = createGraphics(width, height);
   bgLayer1 = createGraphics(width, height);
   subLayer1 = createGraphics(width, height);
@@ -88,21 +88,6 @@ function touchMoved() {
         bgLayer3.endShape();
       }
     } else if (drawingIsActive && eraseBoolean) {
-      // bgLayer1.noStroke();
-      // bgLayer1.fill(255);
-      // bgLayer2.noStroke();
-      // bgLayer2.fill(255);
-      // bgLayer3.noStroke();
-      // bgLayer3.fill(255);
-      // introLayer.noStroke();
-      // introLayer.fill(255);
-      // bgLayer1.circle(winMouseX, winMouseY, 100, 100);
-      // bgLayer2.circle(winMouseX, winMouseY, 100, 100);
-      // bgLayer3.circle(winMouseX, winMouseY, 100, 100);
-      // introLayer.circle(winMouseX, winMouseY, 100, 100);
-      // bgLayer1.stroke(0);
-      // bgLayer2.stroke(0);
-      // bgLayer3.stroke(0);
 
       subLayer1.fill(255);
       subLayer1.noStroke();
@@ -122,13 +107,10 @@ function touchMoved() {
       bgLayer1.noStroke();
       bgLayer1.ellipse(mouseX, mouseY, 100, 100);
       bgLayer1.stroke(12);
-
       bgLayer2.fill(255, 240, 245);
       bgLayer2.noStroke();
       bgLayer2.ellipse(mouseX, mouseY, 100, 100);
       bgLayer2.stroke(12);
-
-
       bgLayer3.fill(255, 240, 245);
       bgLayer3.noStroke();
       bgLayer3.ellipse(mouseX, mouseY, 100, 100);
