@@ -31,6 +31,7 @@ function setup() {
 
   bgLayer1 = createGraphics(width, height);
   subLayer1 = createGraphics(width, height);
+
   bgLayer1.background(255, 240, 245);
   bgLayer1.strokeWeight(12);
   bgLayer1.stroke(0);
@@ -55,6 +56,11 @@ function setup() {
   arcRadius = vMin * 35;
   slide = 0;
   slideShow();
+
+  subLayer1.blendMode(LIGHTEST);
+  subLayer2.blendMode(LIGHTEST);
+  subLayer3.blendMode(LIGHTEST);
+
   //may need background fill.
 }
 
@@ -170,15 +176,15 @@ function touchEnded() {
 function draw() {
   if (introState === 3) {
     if (currentLayer === 1) {
-      subLayer1.blendMode(BLEND);
+
+      subLayer1.clear();
       subLayer1.image(bgLayer1, 0, 0, width, height);
-      subLayer1.blendMode(LIGHTEST);
       subLayer1.image(fgLayer1, 0, 0, lE, lE);
+
     } else if (currentLayer === 2) {
-      subLayer2.blendMode(BLEND);
+      subLayer2.clear();
       subLayer2.image(bgLayer2, 0, 0, width, height);
-      subLayer2.blendMode(LIGHTEST);
-      subLayer2.image(fgLayer2, 0, 0, lE, lE);
+        subLayer2.image(fgLayer2, 0, 0, lE, lE);
     } else if (currentLayer === 3) {
       subLayer3.blendMode(BLEND);
       subLayer3.image(bgLayer3, 0, 0, width, height);
