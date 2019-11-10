@@ -89,32 +89,34 @@ function touchMoved() {
       }
     } else if (drawingIsActive && eraseBoolean) {
 
-      subLayer1.fill(255);
-      subLayer1.noStroke();
-      subLayer1.ellipse(mouseX, mouseY, 100, 100);
-      subLayer1.stroke(12);
-      subLayer2.fill(255);
-      subLayer2.noStroke();
-      subLayer2.ellipse(mouseX, mouseY, 100, 100);
-      subLayer2.stroke(12);
-      subLayer3.fill(255);
-      subLayer3.noStroke();
-      subLayer3.ellipse(mouseX, mouseY, 100, 100);
-      subLayer3.stroke(12);
 
+      subLayer1.stroke(255);
+      subLayer1.strokeWeight(40);
+      subLayer1.line(mouseX, mouseY, pmouseX, pmouseY);
+      subLayer2.stroke(255);
+      subLayer2.strokeWeight(40);
+      subLayer2.line(mouseX, mouseY, pmouseX, pmouseY);
+      subLayer3.stroke(255);
+      subLayer3.strokeWeight(40);
+      subLayer3.line(mouseX, mouseY, pmouseX, pmouseY);
 
-      bgLayer1.fill(255, 240, 245);
-      bgLayer1.noStroke();
-      bgLayer1.ellipse(mouseX, mouseY, 100, 100);
-      bgLayer1.stroke(12);
-      bgLayer2.fill(255, 240, 245);
-      bgLayer2.noStroke();
-      bgLayer2.ellipse(mouseX, mouseY, 100, 100);
-      bgLayer2.stroke(12);
-      bgLayer3.fill(255, 240, 245);
-      bgLayer3.noStroke();
-      bgLayer3.ellipse(mouseX, mouseY, 100, 100);
-      bgLayer3.stroke(12);
+      bgLayer1.stroke(255, 240, 245);
+      bgLayer1.strokeWeight(40);
+      bgLayer1.line(mouseX, mouseY, pmouseX, pmouseY);
+      bgLayer1.stroke(0);
+      bgLayer1.strokeWeight(12);
+      bgLayer2.stroke(255, 240, 245);
+
+      bgLayer2.strokeWeight(40);
+      bgLayer2.line(mouseX, mouseY, pmouseX, pmouseY);
+        bgLayer2.stroke(0);
+      bgLayer2.strokeWeight(12);
+
+      bgLayer3.stroke(255, 240, 245);
+      bgLayer3.strokeWeight(40);
+      bgLayer3.line(mouseX, mouseY, pmouseX, pmouseY);
+            bgLayer3.stroke(0);
+      bgLayer3.strokeWeight(12);
 
       clear();
       image(subLayer1, 0, 0, width, height);
