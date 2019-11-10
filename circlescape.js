@@ -59,28 +59,21 @@ function setup() {
 function touchMoved() {
   if (introState === 3) {
     if (drawingIsActive && eraseBoolean === 0) {
+      lineArrayX.push(winMouseX);
+      lineArrayY.push(winMouseY);
       if (currentLayer === 1) {
-        bgLayer1.strokeWeight(12);
-        lineArrayX.push(winMouseX);
-        lineArrayY.push(winMouseY);
         bgLayer1.beginShape();
         for (i = 0; i < lineArrayX.length; i++) {
           bgLayer1.curveVertex(lineArrayX[i], lineArrayY[i]);
         }
         bgLayer1.endShape();
       } else if (currentLayer === 2) {
-        bgLayer2.strokeWeight(12);
-        lineArrayX.push(winMouseX);
-        lineArrayY.push(winMouseY);
         bgLayer2.beginShape();
         for (i = 0; i < lineArrayX.length; i++) {
           bgLayer2.curveVertex(lineArrayX[i], lineArrayY[i]);
         }
         bgLayer2.endShape();
       } else if (currentLayer === 3) {
-        bgLayer3.strokeWeight(12);
-        lineArrayX.push(winMouseX);
-        lineArrayY.push(winMouseY);
         bgLayer3.beginShape();
         for (i = 0; i < lineArrayX.length; i++) {
           bgLayer3.curveVertex(lineArrayX[i], lineArrayY[i]);
@@ -233,7 +226,7 @@ function draw() {
 }
 
 function windowResized() {
-  paint.resizeCanvas(width, height);
+
   sliderImg.resizeCanvas(width, height);
   resizeCanvas(width, height);
   calcDimensions();
