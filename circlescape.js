@@ -106,25 +106,6 @@ function touchMoved() {
       tileNum = constrain(((width / (winMouseX + 20))), 1, 10);
       makeSlider(winMouseX);
     }
-
-    if (currentLayer === 1) {
-      subLayer1.clear();
-      subLayer1.image(bgLayer1, 0, 0, width, height);
-      subLayer1.image(fgLayer1, 0, 0, lE, lE);
-      introLayer.image(subLayer1, 0, 0, width, height);
-    } else if (currentLayer === 2) {
-      subLayer2.clear();
-      subLayer2.image(bgLayer2, 0, 0, width, height);
-      subLayer2.image(fgLayer2, 0, 0, lE, lE);
-      introLayer.image(subLayer2, 0, 0, width, height);
-    } else if (currentLayer === 3) {
-      subLayer3.clear();
-      subLayer3.image(bgLayer3, 0, 0, width, height);
-      subLayer3.image(fgLayer3, 0, 0, lE, lE);
-      introLayer.image(subLayer3, 0, 0, width, height);
-    }
-
-
   } else {
     if (slide > 0) {
       if (dist(tempCosX, tempSinY, winMouseX, winMouseY) < ellipseSize / 2) {
@@ -192,8 +173,24 @@ function touchEnded() {
 
 function draw() {
   if (introState === 3) {
-
-    image(introLayer, 0, 0, width, height);
+    if (currentLayer === 1) {
+      // subLayer1.clear();
+      // subLayer1.image(bgLayer1, 0, 0, width, height);
+      // subLayer1.image(fgLayer1, 0, 0, lE, lE);
+      // introLayer.image(subLayer1, 0, 0, width, height);
+    } else if (currentLayer === 2) {
+      subLayer2.clear();
+      subLayer2.image(bgLayer2, 0, 0, width, height);
+      subLayer2.image(fgLayer2, 0, 0, lE, lE);
+      introLayer.image(subLayer2, 0, 0, width, height);
+    } else if (currentLayer === 3) {
+      subLayer3.clear();
+      subLayer3.image(bgLayer3, 0, 0, width, height);
+      subLayer3.image(fgLayer3, 0, 0, lE, lE);
+      introLayer.image(subLayer3, 0, 0, width, height);
+    }
+    // image(introLayer, 0, 0, width, height);
+    ellipse(mouseX, mouseY, 10, 10);
 
    if (!drawingIsActive) {
       {
