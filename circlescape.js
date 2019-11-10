@@ -192,6 +192,7 @@ function draw() {
       {
         for (let i = 0; i < tileNum; i++) {
           for (let j = 0; j < tileNum; j++) {
+            blendMode(BLEND);
             background(255);
             blendMode(DARKEST);
             image(subLayer1, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);

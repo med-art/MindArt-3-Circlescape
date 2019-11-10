@@ -83,7 +83,6 @@ function nextStep() {
   swatch2.remove();
   swatch3.remove();
   button.remove();
-
   selColour.remove();
   drawingIsActive = !drawingIsActive;
   if (!drawingIsActive) {
@@ -94,8 +93,8 @@ function nextStep() {
       stage = 0;
     }
     bgLayer1.background(255, 240, 245);
-    bgLayer2.clear(appCol);
-    bgLayer3.clear(appCol);
+    bgLayer2.background(255, 240, 245);
+    bgLayer3.background(255, 240, 245);
     subLayer1.background(appBg);
     subLayer2.background(appBg);
     subLayer3.background(appBg);
