@@ -174,10 +174,10 @@ function touchEnded() {
 function draw() {
   if (introState === 3) {
     if (currentLayer === 1) {
-      // subLayer1.clear();
-      // subLayer1.image(bgLayer1, 0, 0, width, height);
-      // subLayer1.image(fgLayer1, 0, 0, lE, lE);
-      // introLayer.image(subLayer1, 0, 0, width, height);
+      subLayer1.clear();
+      subLayer1.image(bgLayer1, 0, 0, width, height);
+      subLayer1.image(fgLayer1, 0, 0, lE, lE);
+      image(subLayer1, 0, 0, width, height);
     } else if (currentLayer === 2) {
       subLayer2.clear();
       subLayer2.image(bgLayer2, 0, 0, width, height);
@@ -189,8 +189,8 @@ function draw() {
       subLayer3.image(fgLayer3, 0, 0, lE, lE);
       introLayer.image(subLayer3, 0, 0, width, height);
     }
-    // image(introLayer, 0, 0, width, height);
-    ellipse(mouseX, mouseY, 10, 10);
+     // image(introLayer, 0, 0, width, height);
+
 
    if (!drawingIsActive) {
       {
