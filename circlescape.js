@@ -52,10 +52,8 @@ function setup() {
   strokeWeight(10);
   ellipseSize = vMax * 20;
   arcRadius = vMin * 35;
-  slide = 4;
-  //slideShow();
-  introState = 3;
-  makeSwatch();
+  slide = 0;
+  slideShow();
   subLayer1.blendMode(LIGHTEST);
   subLayer2.blendMode(LIGHTEST);
   subLayer3.blendMode(LIGHTEST);
@@ -177,25 +175,24 @@ function draw() {
       subLayer1.clear();
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.image(fgLayer1, 0, 0, lE, lE);
+        image(subLayer1, 0, 0, width, height);
     } else if (currentLayer === 2) {
       subLayer2.clear();
       subLayer2.image(bgLayer2, 0, 0, width, height);
       subLayer2.image(fgLayer2, 0, 0, lE, lE);
+        image(subLayer2, 0, 0, width, height);
     } else if (currentLayer === 3) {
       subLayer3.clear();
       subLayer3.image(bgLayer3, 0, 0, width, height);
       subLayer3.image(fgLayer3, 0, 0, lE, lE);
-    }
-    clear();
-    background(255);
-    if (drawingIsActive) {
-      image(subLayer1, 0, 0, width, height);
-      image(subLayer2, 0, 0, width, height);
       image(subLayer3, 0, 0, width, height);
-    } else if (!drawingIsActive) {
+    }
+
+   if (!drawingIsActive) {
       {
         for (let i = 0; i < tileNum; i++) {
           for (let j = 0; j < tileNum; j++) {
+            background(255);
             blendMode(DARKEST);
             image(subLayer1, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
             image(subLayer2, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
