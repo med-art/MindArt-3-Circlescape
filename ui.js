@@ -201,9 +201,9 @@ function makeErase() {
   button.mousePressed(makeErase);
   eraseBoolean = 1;
 
-  bgLayer1.stroke(255, 30);
-  bgLayer2.stroke(255, 30);
-  bgLayer3.stroke(255, 30);
+  bgLayer1.stroke(255, 60);
+  bgLayer2.stroke(255, 60);
+  bgLayer3.stroke(255, 60);
   bgLayer1.strokeWeight(100);
   bgLayer2.strokeWeight(100);
   bgLayer3.strokeWeight(100);

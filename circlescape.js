@@ -90,7 +90,7 @@ function touchMoved() {
       bgLayer3.line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
       blendMode(BLEND);
       strokeWeight(100);
-      stroke(255,20);
+      stroke(255,60);
       line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
 
     } else {
