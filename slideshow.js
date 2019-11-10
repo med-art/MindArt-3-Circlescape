@@ -33,6 +33,8 @@ function slideShow() {
     introState = 3;
     makeSwatch();
     //windowResized();
+    introLayer.clear();
+    introLayer.blendMode(DARKEST);
     counter = 0;
     //slide = 4; // effectively will switch off slideshow.
   } else if (slide < introText.length && slide > 0) {

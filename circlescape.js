@@ -47,6 +47,7 @@ function setup() {
   bgLayer3.stroke(0);
   bgLayer3.noFill();
   introLayer = createGraphics(width, height);
+  introLayer.blendMode(BLEND);
   sliderImg = createGraphics(width, height);
   driftY = height / 3;
   strokeWeight(10);
@@ -91,9 +92,13 @@ function touchMoved() {
       bgLayer2.fill(255);
       bgLayer3.noStroke();
       bgLayer3.fill(255);
+      introLayer.noStroke();
+    introLayer.fill(255);
       bgLayer1.circle(winMouseX, winMouseY, 100, 100);
       bgLayer2.circle(winMouseX, winMouseY, 100, 100);
       bgLayer3.circle(winMouseX, winMouseY, 100, 100);
+
+      introLayer.circle(winMouseX, winMouseY, 100, 100);
       bgLayer1.stroke(0);
       bgLayer2.stroke(0);
       bgLayer3.stroke(0);
@@ -175,32 +180,31 @@ function draw() {
       subLayer1.clear();
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.image(fgLayer1, 0, 0, lE, lE);
-        image(subLayer1, 0, 0, width, height);
+      introLayer.image(subLayer1, 0, 0, width, height);
     } else if (currentLayer === 2) {
       subLayer2.clear();
       subLayer2.image(bgLayer2, 0, 0, width, height);
       subLayer2.image(fgLayer2, 0, 0, lE, lE);
-        image(subLayer2, 0, 0, width, height);
+      introLayer.image(subLayer2, 0, 0, width, height);
     } else if (currentLayer === 3) {
       subLayer3.clear();
       subLayer3.image(bgLayer3, 0, 0, width, height);
       subLayer3.image(fgLayer3, 0, 0, lE, lE);
-      image(subLayer3, 0, 0, width, height);
+      introLayer.image(subLayer3, 0, 0, width, height);
     }
+
+    image(introLayer, 0, 0, width, height);
 
    if (!drawingIsActive) {
       {
+          blendMode(BLEND);
         for (let i = 0; i < tileNum; i++) {
           for (let j = 0; j < tileNum; j++) {
-            blendMode(BLEND);
-            background(255);
-            blendMode(DARKEST);
-            image(subLayer1, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
-            image(subLayer2, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
-            image(subLayer3, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
+
+                image(introLayer, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
           }
         }
-        blendMode(BLEND);
+
         image(sliderImg, 0, 0, width, height);
       }
     }

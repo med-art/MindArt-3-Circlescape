@@ -98,6 +98,7 @@ function nextStep() {
     subLayer1.background(appBg);
     subLayer2.background(appBg);
     subLayer3.background(appBg);
+        introLayer.clear();
 
     if (stage === 0) {
       fgLayer1 = loadImage('assets/s1-1.jpg');
@@ -156,11 +157,6 @@ function makeSlider(_mouseX) {
 
 function saveImg() {
   blendMode(BLEND);
-  if (drawingIsActive) {
-    // save the drawing
-  } else {
-    // save the drawing
-  }
   save('linescape' + month() + day() + hour() + second() + '.jpg');
 }
 
