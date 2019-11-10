@@ -20,7 +20,7 @@ function preload() {
   fgLayer1 = loadImage('assets/s1-1.jpg');
   fgLayer2 = loadImage('assets/s1-2.jpg');
   fgLayer3 = loadImage('assets/s1-3.jpg');
-  audio = loadSound('assets/audio_01.mp3');
+  audio = loadSound('assets/audio_02.mp3');
   click = loadSound('assets/click.mp3');
 }
 
