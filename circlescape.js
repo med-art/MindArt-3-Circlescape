@@ -27,6 +27,8 @@ function preload() {
   sliderIcon = loadImage('assets/slider.png')
 }
 
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   calcDimensions();
@@ -90,7 +92,7 @@ function touchMoved() {
       bgLayer3.line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
       blendMode(BLEND);
       strokeWeight(100);
-      stroke(255,60);
+      stroke(255,90);
       line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
 
     } else {
@@ -217,3 +219,72 @@ function draw() {
 //   makeSwatch();
 //   saveNext();
 // }
+
+function windowResized() {
+
+  resizeCanvas(windowWidth, windowHeight);
+  textLayer.resizeCanvas(windowWidth, windowHeight);
+  introLayer.resizeCanvas(windowWidth, windowHeight);
+
+
+
+
+
+
+  if (introState === 3){
+
+
+
+    let fgLayer1New = createGraphics(windowWidth, windowHeight);
+    fgLayer1New.image(fgLayer1,0,0,windowWidth, windowHeight);
+    fgLayer1.resizeCanvas(windowWidth, windowHeight);
+    fgLayer1 = fgLayer1New;
+    let fgLayer2New = createGraphics(windowWidth, windowHeight);
+    fgLayer2New.image(fgLayer2,0,0,windowWidth, windowHeight);
+    fgLayer2.resizeCanvas(windowWidth, windowHeight);
+    fgLayer2 = fgLayer2New;
+    let fgLayer3New = createGraphics(windowWidth, windowHeight);
+    fgLayer3New.image(fgLayer3,0,0,windowWidth, windowHeight);
+    fgLayer3.resizeCanvas(windowWidth, windowHeight);
+    fgLayer3 = fgLayer3New;
+    let bgLayer1New = createGraphics(windowWidth, windowHeight);
+    bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
+    bgLayer1.resizeCanvas(windowWidth, windowHeight);
+    bgLayer1 = bgLayer1New;
+    let bgLayer2New = createGraphics(windowWidth, windowHeight);
+    bgLayer2New.image(bgLayer2,0,0,windowWidth, windowHeight);
+    bgLayer2.resizeCanvas(windowWidth, windowHeight);
+    bgLayer2 = bgLayer2New;
+    let bgLayer3New = createGraphics(windowWidth, windowHeight);
+    bgLayer3New.image(bgLayer3,0,0,windowWidth, windowHeight);
+    bgLayer3.resizeCanvas(windowWidth, windowHeight);
+    bgLayer3 = bgLayer3New;
+    let subLayer1New = createGraphics(windowWidth, windowHeight);
+    subLayer1New.image(subLayer1,0,0,windowWidth, windowHeight);
+    subLayer1.resizeCanvas(windowWidth, windowHeight);
+    subLayer1 = subLayer1New;
+    let subLayer2New = createGraphics(windowWidth, windowHeight);
+    subLayer2New.image(subLayer2,0,0,windowWidth, windowHeight);
+    subLayer2.resizeCanvas(windowWidth, windowHeight);
+    subLayer2 = subLayer2New;
+    let subLayer3New = createGraphics(windowWidth, windowHeight);
+    subLayer3New.image(subLayer3,0,0,windowWidth, windowHeight);
+    subLayer3.resizeCanvas(windowWidth, windowHeight);
+    subLayer3 = subLayer3New;
+
+
+
+    textLayer.resizeCanvas(windowWidth, windowHeight);
+    sliderImg.resizeCanvas(windowWidth, windowHeight);
+    calcDimensions();
+    removeElements();
+
+    saveNext();
+
+    if (!gridVStextureBool){
+        makeSwatch();
+    }
+  }
+
+
+}
