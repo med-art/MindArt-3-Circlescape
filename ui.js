@@ -6,15 +6,18 @@ let fsButton;
 let swatch1, swatch2, swatch3;
 let stage = 0;
 let eraseBoolean = 0;
+let lE;
 
 function calcDimensions() {
   vW = width / 100;
   if (width > height) {
     vMax = width / 100;
     vMin = height / 100;
+    lE = width;
   } else {
     vMax = height / 100;
     vMin = width / 100;
+    lE = height;
   }
 }
 

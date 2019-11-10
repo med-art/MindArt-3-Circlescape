@@ -178,17 +178,17 @@ function draw() {
       subLayer1.blendMode(BLEND);
       subLayer1.image(bgLayer1, 0, 0, width, height);
       subLayer1.blendMode(LIGHTEST);
-      subLayer1.image(fgLayer1, 0, 0, width, height);
+      subLayer1.image(fgLayer1, 0, 0, lE, lE);
     } else if (currentLayer === 2) {
       subLayer2.blendMode(BLEND);
       subLayer2.image(bgLayer2, 0, 0, width, height);
       subLayer2.blendMode(LIGHTEST);
-      subLayer2.image(fgLayer2, 0, 0, width, height);
+      subLayer2.image(fgLayer2, 0, 0, lE, lE);
     } else if (currentLayer === 3) {
       subLayer3.blendMode(BLEND);
       subLayer3.image(bgLayer3, 0, 0, width, height);
       subLayer3.blendMode(LIGHTEST);
-      subLayer3.image(fgLayer3, 0, 0, width, height);
+      subLayer3.image(fgLayer3, 0, 0, lE, lE);
     }
     blendMode(BLEND);
     background(255);
