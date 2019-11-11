@@ -223,6 +223,9 @@ function windowResized() {
   introLayerNew.image(introLayer, 0,0,windowWidth, windowHeight);
   introLayer.resizeCanvas(windowWidth, windowHeight);
   introLayer =   introLayerNew;
+  changeBrush(currentLayer);
+removeElements();
+  fscButton();
 
 
 
@@ -255,9 +258,8 @@ function windowResized() {
     subLayer3 = subLayer3New;
 
       sliderImg.resizeCanvas(windowWidth, windowHeight);
-        changeBrush(currentLayer);
-  removeElements();
-  fscButton();
+
+
 
 
     if (drawingIsActive){
