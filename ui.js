@@ -131,7 +131,7 @@ function nextStep() {
 
 
     makeSwatch();
-
+    fsButton.remove();
     saveButton.remove();
     newButton.remove();
     currentLayer = 1;
