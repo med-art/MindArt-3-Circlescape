@@ -230,46 +230,8 @@ function windowResized() {
 
 
   if (introState === 3){
-    let bgLayer1New = createGraphics(windowWidth, windowHeight);
-    bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
-    bgLayer1.resizeCanvas(windowWidth, windowHeight);
-    bgLayer1 = bgLayer1New;
-    bgLayer1New.remove();
 
-    let bgLayer2New = createGraphics(windowWidth, windowHeight);
-    bgLayer2New.image(bgLayer2,0,0,windowWidth, windowHeight);
-    bgLayer2.resizeCanvas(windowWidth, windowHeight);
-    bgLayer2 = bgLayer2New;
-      bgLayer2New.remove();
-
-    let bgLayer3New = createGraphics(windowWidth, windowHeight);
-    bgLayer3New.image(bgLayer3,0,0,windowWidth, windowHeight);
-    bgLayer3.resizeCanvas(windowWidth, windowHeight);
-    bgLayer3 = bgLayer3New;
-      bgLayer3New.remove();
-
-    let subLayer1New = createGraphics(windowWidth, windowHeight);
-    subLayer1New.image(subLayer1,0,0,windowWidth, windowHeight);
-    subLayer1.resizeCanvas(windowWidth, windowHeight);
-    subLayer1 = subLayer1New;
-    subLayer1New.remove();
-
-
-    let subLayer2New = createGraphics(windowWidth, windowHeight);
-    subLayer2New.image(subLayer2,0,0,windowWidth, windowHeight);
-    subLayer2.resizeCanvas(windowWidth, windowHeight);
-    subLayer2 = subLayer2New;
-    subLayer2New.remove();
-
-    let subLayer3New = createGraphics(windowWidth, windowHeight);
-    subLayer3New.image(subLayer3,0,0,windowWidth, windowHeight);
-    subLayer3.resizeCanvas(windowWidth, windowHeight);
-    subLayer3 = subLayer3New;
-    subLayer3New.remove();
-
-    sliderImg.resizeCanvas(windowWidth, windowHeight);
-    saveNext();
-
+  setTimeout(time, 500);
 
 
     if (drawingIsActive){
@@ -293,4 +255,46 @@ function windowResized() {
 
     }
   }
+}
+
+function time(){
+  let bgLayer1New = createGraphics(windowWidth, windowHeight);
+  bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
+  bgLayer1.resizeCanvas(windowWidth, windowHeight);
+  bgLayer1 = bgLayer1New;
+  bgLayer1New.remove();
+
+  let bgLayer2New = createGraphics(windowWidth, windowHeight);
+  bgLayer2New.image(bgLayer2,0,0,windowWidth, windowHeight);
+  bgLayer2.resizeCanvas(windowWidth, windowHeight);
+  bgLayer2 = bgLayer2New;
+    bgLayer2New.remove();
+
+  let bgLayer3New = createGraphics(windowWidth, windowHeight);
+  bgLayer3New.image(bgLayer3,0,0,windowWidth, windowHeight);
+  bgLayer3.resizeCanvas(windowWidth, windowHeight);
+  bgLayer3 = bgLayer3New;
+    bgLayer3New.remove();
+
+  let subLayer1New = createGraphics(windowWidth, windowHeight);
+  subLayer1New.image(subLayer1,0,0,windowWidth, windowHeight);
+  subLayer1.resizeCanvas(windowWidth, windowHeight);
+  subLayer1 = subLayer1New;
+  subLayer1New.remove();
+
+
+  let subLayer2New = createGraphics(windowWidth, windowHeight);
+  subLayer2New.image(subLayer2,0,0,windowWidth, windowHeight);
+  subLayer2.resizeCanvas(windowWidth, windowHeight);
+  subLayer2 = subLayer2New;
+  subLayer2New.remove();
+
+  let subLayer3New = createGraphics(windowWidth, windowHeight);
+  subLayer3New.image(subLayer3,0,0,windowWidth, windowHeight);
+  subLayer3.resizeCanvas(windowWidth, windowHeight);
+  subLayer3 = subLayer3New;
+  subLayer3New.remove();
+
+  sliderImg.resizeCanvas(windowWidth, windowHeight);
+  saveNext();
 }
