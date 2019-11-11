@@ -223,12 +223,12 @@ function windowResized() {
   introLayer.resizeCanvas(windowWidth, windowHeight);
   introLayer =   introLayerNew;
   changeBrush(currentLayer);
-removeElements();
+
+  removeElements();
 
 
 
   if (introState === 3){
-    resizeCanvas(windowWidth, windowHeight);
     let bgLayer1New = createGraphics(windowWidth, windowHeight);
     bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
     bgLayer1.resizeCanvas(windowWidth, windowHeight);
@@ -255,8 +255,8 @@ removeElements();
     subLayer3.resizeCanvas(windowWidth, windowHeight);
     subLayer3 = subLayer3New;
 
-      sliderImg.resizeCanvas(windowWidth, windowHeight);
-      saveNext();
+    sliderImg.resizeCanvas(windowWidth, windowHeight);
+    saveNext();
 
 
 
