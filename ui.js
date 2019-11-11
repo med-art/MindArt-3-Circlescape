@@ -54,7 +54,10 @@ function makeSwatch() {
     changeBrush(3)
   });
 
-
+  fsButton = createImg('assets/enterFS.png');
+  fsButton.style('height', '4.5vMax');
+  fsButton.position(width - (7.5 * vMax), 1.5 * vMax);
+  fsButton.mousePressed(fs);
 
 
   selColour = createImg('assets/colSelected.png');
@@ -64,12 +67,7 @@ function makeSwatch() {
   saveNext();
 }
 
-function fscButton(){
-  fsButton = createImg('assets/enterFS.png');
-  fsButton.style('height', '4.5vMax');
-  fsButton.position(width - (7.5 * vMax), 1.5 * vMax);
-  fsButton.mousePressed(fs);
-}
+
 
 function saveNext() {
   newButton = createButton("Next")
