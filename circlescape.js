@@ -269,7 +269,7 @@ function windowResized() {
           image(subLayer1, windowWidth, windowHeight);
           image(subLayer2, windowWidth, windowHeight);
           image(subLayer3, windowWidth, windowHeight);
-          changeBrush(currentLayer);
+          //changeBrush(currentLayer);
 
     }
 
