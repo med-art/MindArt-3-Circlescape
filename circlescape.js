@@ -218,16 +218,16 @@ function windowResized() {
   calcDimensions();
   textLayer.resizeCanvas(windowWidth, windowHeight);
 
-  // let introLayerNew = createGraphics(windowWidth, windowHeight);
-  // introLayerNew.image(introLayer,0,0,windowWidth, windowHeight);
-  // introLayer.resizeCanvas(windowWidth, windowHeight);
-  // introLayer = introLayerNew;
-  // changeBrush(currentLayer);
-  //
-  // removeElements();
-  //
-  //
-  //
+  let introLayerNew = createGraphics(windowWidth, windowHeight);
+  introLayerNew.image(introLayer,0,0,windowWidth, windowHeight);
+  introLayer.resizeCanvas(windowWidth, windowHeight);
+  introLayer = introLayerNew;
+  changeBrush(currentLayer);
+
+  removeElements();
+
+
+
   if (introState === 3){
   //   let bgLayer1New = createGraphics(windowWidth, windowHeight);
   //   bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
