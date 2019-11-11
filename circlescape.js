@@ -276,9 +276,6 @@ removeElements();
     else if (!drawingIsActive){
       blendMode(BLEND);
       background(255);
-saveNext();
-
-
       makeSlider();
 
 
