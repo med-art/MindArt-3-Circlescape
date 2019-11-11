@@ -271,14 +271,14 @@ removeElements();
           image(subLayer2, windowWidth, windowHeight);
           image(subLayer3, windowWidth, windowHeight);
           changeBrush(currentLayer);
-          setTimeout(fscButton, 1000);
+          
     }
 
     else if (!drawingIsActive){
       blendMode(BLEND);
       background(255);
 saveNext();
-  setTimeout(fscButton, 1000);
+
 
       makeSlider();
 
