@@ -32,6 +32,7 @@ function slideShow() {
     subLayer1.clear();
     introState = 3;
     makeSwatch();
+    fscButton();
     introLayer.clear();
     introLayer.blendMode(DARKEST);
     counter = 0;

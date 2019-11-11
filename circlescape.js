@@ -257,6 +257,7 @@ function windowResized() {
       sliderImg.resizeCanvas(windowWidth, windowHeight);
         changeBrush(currentLayer);
   removeElements();
+  fscButton();
 
 
     if (drawingIsActive){

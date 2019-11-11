@@ -53,15 +53,22 @@ function makeSwatch() {
   swatch3.mousePressed(function() {
     changeBrush(3)
   });
-  fsButton = createImg('assets/enterFS.png');
-  fsButton.style('height', '4.5vMax');
-  fsButton.position(width - (7.5 * vMax), 1.5 * vMax);
-  fsButton.mousePressed(fs);
+
+
+
+
   selColour = createImg('assets/colSelected.png');
   selColour.position(15 * vMax, height - (16 * vMax));
   selColour.size(8 * vMax, 16 * vMax);
   selColour.mousePressed();
   saveNext();
+}
+
+function fscButton(){
+  fsButton = createImg('assets/enterFS.png');
+  fsButton.style('height', '4.5vMax');
+  fsButton.position(width - (7.5 * vMax), 1.5 * vMax);
+  fsButton.mousePressed(fs);
 }
 
 function saveNext() {
@@ -131,7 +138,6 @@ function nextStep() {
 
 
     makeSwatch();
-    fsButton.remove();
     saveButton.remove();
     newButton.remove();
     currentLayer = 1;
