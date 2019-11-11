@@ -22,7 +22,7 @@ function preload() {
   fgLayer1 = loadImage('assets/s1-1.png');
   fgLayer2 = loadImage('assets/s1-2.png');
   fgLayer3 = loadImage('assets/s1-3.png');
-  audio = loadSound('assets/audio_02.mp3');
+  audio = loadSound('assets/audio.mp3');
   click = loadSound('assets/click.mp3');
   sliderIcon = loadImage('assets/slider.png')
 }
@@ -165,6 +165,8 @@ function touchEnded() {
 }
 
 function draw() {
+
+
   if (introState === 3) {
     blendMode(DARKEST);
     if (currentLayer === 1) {
@@ -181,16 +183,15 @@ function draw() {
       image(subLayer3, 0, 0, width, height);
     }
     if (!drawingIsActive) {
-      {
-
         blendMode(BLEND);
         for (let i = 0; i < tileNum; i++) {
           for (let j = 0; j < tileNum; j++) {
             image(introLayer, (width / tileNum) * i, (height / tileNum) * j, width / tileNum, height / tileNum);
+console.log(tileNum);
           }
         }
         image(sliderImg, 0, 0, width, height);
-      }
+
     }
   } else {
     blendMode(BLEND);
@@ -211,30 +212,21 @@ function draw() {
     image(textLayer, 0, 0, width, height);
   }
 }
-// function windowResized() {
-//
-//   sliderImg.resizeCanvas(width, height);
-//   resizeCanvas(width, height);
-//   calcDimensions();
-//   removeElements();
-//   makeSwatch();
-//   saveNext();
-// }
 
 function windowResized() {
 
   resizeCanvas(windowWidth, windowHeight);
+  calcDimensions();
   textLayer.resizeCanvas(windowWidth, windowHeight);
+
+  let introLayerNew = createGraphics(windowWidth, windowHeight);
+  introLayerNew.image(introLayer, 0,0,windowWidth, windowHeight);
   introLayer.resizeCanvas(windowWidth, windowHeight);
-
-
-
+  introLayer =   introLayerNew;
 
 
 
   if (introState === 3){
-
-
     resizeCanvas(windowWidth, windowHeight);
     let bgLayer1New = createGraphics(windowWidth, windowHeight);
     bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
@@ -248,6 +240,7 @@ function windowResized() {
     bgLayer3New.image(bgLayer3,0,0,windowWidth, windowHeight);
     bgLayer3.resizeCanvas(windowWidth, windowHeight);
     bgLayer3 = bgLayer3New;
+
     let subLayer1New = createGraphics(windowWidth, windowHeight);
     subLayer1New.image(subLayer1,0,0,windowWidth, windowHeight);
     subLayer1.resizeCanvas(windowWidth, windowHeight);
@@ -260,16 +253,14 @@ function windowResized() {
     subLayer3New.image(subLayer3,0,0,windowWidth, windowHeight);
     subLayer3.resizeCanvas(windowWidth, windowHeight);
     subLayer3 = subLayer3New;
-    textLayer.resizeCanvas(windowWidth, windowHeight);
 
-
-  calcDimensions();
-    saveNext();
-
+      sliderImg.resizeCanvas(windowWidth, windowHeight);
+        changeBrush(currentLayer);
+  removeElements();
 
 
     if (drawingIsActive){
-      removeElements();
+    saveNext();
         makeSwatch();
         blendMode(BLEND);
           background(255);
@@ -277,19 +268,17 @@ function windowResized() {
           image(subLayer1, windowWidth, windowHeight);
           image(subLayer2, windowWidth, windowHeight);
           image(subLayer3, windowWidth, windowHeight);
+          changeBrush(currentLayer);
     }
 
-    else {
+    else if (!drawingIsActive){
       blendMode(BLEND);
-  background(255);
-      sliderImg.clear();
-      introLayer.resizeCanvas(windowWidth, windowHeight);
+      background(255);
+saveNext();
+
+      makeSlider();
+
+
     }
-
-
-
-
   }
-
-
 }

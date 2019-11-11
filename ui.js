@@ -88,10 +88,11 @@ function nextStep() {
   selColour.remove();
   drawingIsActive = !drawingIsActive;
   if (!drawingIsActive) {
+    introLayer.blendMode(DARKEST);
       introLayer.image(subLayer1, 0, 0, width, height);
       introLayer.image(subLayer2, 0, 0, width, height);
       introLayer.image(subLayer3, 0, 0, width, height);
-    makeSlider(winMouseX);
+    makeSlider();
   } else {
     stage++;
     if (stage === 4) {
@@ -130,7 +131,7 @@ function nextStep() {
 
 
     makeSwatch();
-    fsButton.remove();
+
     saveButton.remove();
     newButton.remove();
     currentLayer = 1;
@@ -166,7 +167,7 @@ function changeBrush(layerSelected) {
   bgLayer3.strokeWeight(12);
 }
 
-function makeSlider(_mouseX) {
+function makeSlider() {
   sliderImg.clear();
   sliderImg.stroke(255);
   sliderImg.strokeWeight(9*hMax);
@@ -176,7 +177,6 @@ function makeSlider(_mouseX) {
   sliderImg.line(8 * hMax, 8 * hMax, 8*hMax, constrain(mouseY, 8*hMax, height - (8 * hMax)));
   sliderImg.imageMode(CENTER);
   sliderImg.image(sliderIcon, 8*hMax, constrain(mouseY, 8*hMax, height - (8 * hMax)), 8.5*hMax, 8.5*hMax);
-
 }
 
 function saveImg() {
