@@ -90,7 +90,7 @@ function touchMoved() {
       bgLayer2.line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
       bgLayer3.line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
       blendMode(BLEND);
-      strokeWeight(100);
+      strokeWeight(60);
       stroke(255,90);
       line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
 
@@ -113,7 +113,7 @@ function touchMoved() {
 function touchEnded() {
   if (drawingIsActive) {
     if (currentLayer === 1) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 350) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 200) {
         bgLayer1.fill(swatchCol[stage * 3]);
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -128,7 +128,7 @@ function touchEnded() {
       lineArrayY = [];
       bgLayer1.noFill();
     } else if (currentLayer === 2) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 350) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 200) {
         bgLayer2.fill(swatchCol[(stage * 3) + 1])
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
@@ -143,7 +143,7 @@ function touchEnded() {
       lineArrayY = [];
       bgLayer2.noFill();
     } else if (currentLayer === 3) {
-      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 350) {
+      if (lineArrayX.length > 20 && dist(winMouseX, winMouseY, lineArrayX[0], lineArrayY[0]) < 200) {
         bgLayer3.fill(swatchCol[(stage * 3) + 2])
         lineArrayX.push(lineArrayX[0]);
         lineArrayY.push(lineArrayY[0]);
