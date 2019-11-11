@@ -229,19 +229,19 @@ function windowResized() {
 
 
   if (introState === 3){
-    // let bgLayer1New = createGraphics(windowWidth, windowHeight);
-    // bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
-    // bgLayer1.resizeCanvas(windowWidth, windowHeight);
-    // bgLayer1 = bgLayer1New;
-    // let bgLayer2New = createGraphics(windowWidth, windowHeight);
-    // bgLayer2New.image(bgLayer2,0,0,windowWidth, windowHeight);
-    // bgLayer2.resizeCanvas(windowWidth, windowHeight);
-    // bgLayer2 = bgLayer2New;
-    // let bgLayer3New = createGraphics(windowWidth, windowHeight);
-    // bgLayer3New.image(bgLayer3,0,0,windowWidth, windowHeight);
-    // bgLayer3.resizeCanvas(windowWidth, windowHeight);
-    // bgLayer3 = bgLayer3New;
-    //
+    let bgLayer1New = createGraphics(windowWidth, windowHeight);
+    bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
+    bgLayer1.resizeCanvas(windowWidth, windowHeight);
+    bgLayer1 = bgLayer1New;
+    let bgLayer2New = createGraphics(windowWidth, windowHeight);
+    bgLayer2New.image(bgLayer2,0,0,windowWidth, windowHeight);
+    bgLayer2.resizeCanvas(windowWidth, windowHeight);
+    bgLayer2 = bgLayer2New;
+    let bgLayer3New = createGraphics(windowWidth, windowHeight);
+    bgLayer3New.image(bgLayer3,0,0,windowWidth, windowHeight);
+    bgLayer3.resizeCanvas(windowWidth, windowHeight);
+    bgLayer3 = bgLayer3New;
+
     // let subLayer1New = createGraphics(windowWidth, windowHeight);
     // subLayer1New.image(subLayer1,0,0,windowWidth, windowHeight);
     // subLayer1.resizeCanvas(windowWidth, windowHeight);
