@@ -223,7 +223,7 @@ function windowResized() {
   introLayer.resizeCanvas(windowWidth, windowHeight);
   introLayer = introLayerNew;
   introLayerNew.remove();
-  // changeBrush(currentLayer);
+   changeBrush(currentLayer);
 
   removeElements();
 
