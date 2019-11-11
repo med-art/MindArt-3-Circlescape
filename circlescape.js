@@ -218,67 +218,67 @@ function windowResized() {
   calcDimensions();
   textLayer.resizeCanvas(windowWidth, windowHeight);
 
-  // let introLayerNew = createGraphics(windowWidth, windowHeight);
-  // introLayerNew.image(introLayer,0,0,windowWidth, windowHeight);
-  // introLayer.resizeCanvas(windowWidth, windowHeight);
-  // introLayer = introLayerNew;
+  let introLayerNew = createGraphics(windowWidth, windowHeight);
+  introLayerNew.image(introLayer,0,0,windowWidth, windowHeight);
+  introLayer.resizeCanvas(windowWidth, windowHeight);
+  introLayer = introLayerNew;
   // changeBrush(currentLayer);
 
-  // removeElements();
+  removeElements();
 
 
-  //
-  // if (introState === 3){
-  //   let bgLayer1New = createGraphics(windowWidth, windowHeight);
-  //   bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
-  //   bgLayer1.resizeCanvas(windowWidth, windowHeight);
-  //   bgLayer1 = bgLayer1New;
-  //   let bgLayer2New = createGraphics(windowWidth, windowHeight);
-  //   bgLayer2New.image(bgLayer2,0,0,windowWidth, windowHeight);
-  //   bgLayer2.resizeCanvas(windowWidth, windowHeight);
-  //   bgLayer2 = bgLayer2New;
-  //   let bgLayer3New = createGraphics(windowWidth, windowHeight);
-  //   bgLayer3New.image(bgLayer3,0,0,windowWidth, windowHeight);
-  //   bgLayer3.resizeCanvas(windowWidth, windowHeight);
-  //   bgLayer3 = bgLayer3New;
-  //
-  //   let subLayer1New = createGraphics(windowWidth, windowHeight);
-  //   subLayer1New.image(subLayer1,0,0,windowWidth, windowHeight);
-  //   subLayer1.resizeCanvas(windowWidth, windowHeight);
-  //   subLayer1 = subLayer1New;
-  //   let subLayer2New = createGraphics(windowWidth, windowHeight);
-  //   subLayer2New.image(subLayer2,0,0,windowWidth, windowHeight);
-  //   subLayer2.resizeCanvas(windowWidth, windowHeight);
-  //   subLayer2 = subLayer2New;
-  //   let subLayer3New = createGraphics(windowWidth, windowHeight);
-  //   subLayer3New.image(subLayer3,0,0,windowWidth, windowHeight);
-  //   subLayer3.resizeCanvas(windowWidth, windowHeight);
-  //   subLayer3 = subLayer3New;
-  //
-  //   sliderImg.resizeCanvas(windowWidth, windowHeight);
-  //   saveNext();
-  //
 
-  //
-  //   if (drawingIsActive){
-  //
-  //       makeSwatch();
-  //       blendMode(BLEND);
-  //         background(255);
-  //         blendMode(DARKEST);
-  //         image(subLayer1, windowWidth, windowHeight);
-  //         image(subLayer2, windowWidth, windowHeight);
-  //         image(subLayer3, windowWidth, windowHeight);
-  //         changeBrush(currentLayer);
-  //
-  //   }
-  //
-  //   else if (!drawingIsActive){
-  //     blendMode(BLEND);
-  //     background(255);
-  //     makeSlider();
-  //
-  //
-  //   }
-  // }
+  if (introState === 3){
+    let bgLayer1New = createGraphics(windowWidth, windowHeight);
+    bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
+    bgLayer1.resizeCanvas(windowWidth, windowHeight);
+    bgLayer1 = bgLayer1New;
+    let bgLayer2New = createGraphics(windowWidth, windowHeight);
+    bgLayer2New.image(bgLayer2,0,0,windowWidth, windowHeight);
+    bgLayer2.resizeCanvas(windowWidth, windowHeight);
+    bgLayer2 = bgLayer2New;
+    let bgLayer3New = createGraphics(windowWidth, windowHeight);
+    bgLayer3New.image(bgLayer3,0,0,windowWidth, windowHeight);
+    bgLayer3.resizeCanvas(windowWidth, windowHeight);
+    bgLayer3 = bgLayer3New;
+
+    let subLayer1New = createGraphics(windowWidth, windowHeight);
+    subLayer1New.image(subLayer1,0,0,windowWidth, windowHeight);
+    subLayer1.resizeCanvas(windowWidth, windowHeight);
+    subLayer1 = subLayer1New;
+    let subLayer2New = createGraphics(windowWidth, windowHeight);
+    subLayer2New.image(subLayer2,0,0,windowWidth, windowHeight);
+    subLayer2.resizeCanvas(windowWidth, windowHeight);
+    subLayer2 = subLayer2New;
+    let subLayer3New = createGraphics(windowWidth, windowHeight);
+    subLayer3New.image(subLayer3,0,0,windowWidth, windowHeight);
+    subLayer3.resizeCanvas(windowWidth, windowHeight);
+    subLayer3 = subLayer3New;
+
+    sliderImg.resizeCanvas(windowWidth, windowHeight);
+    saveNext();
+
+
+
+    if (drawingIsActive){
+
+        makeSwatch();
+        blendMode(BLEND);
+          background(255);
+          blendMode(DARKEST);
+          image(subLayer1, windowWidth, windowHeight);
+          image(subLayer2, windowWidth, windowHeight);
+          image(subLayer3, windowWidth, windowHeight);
+          changeBrush(currentLayer);
+
+    }
+
+    else if (!drawingIsActive){
+      blendMode(BLEND);
+      background(255);
+      makeSlider();
+
+
+    }
+  }
 }
