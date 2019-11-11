@@ -228,7 +228,7 @@ function windowResized() {
   //
   //
   //
-  // if (introState === 3){
+  if (introState === 3){
   //   let bgLayer1New = createGraphics(windowWidth, windowHeight);
   //   bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
   //   bgLayer1.resizeCanvas(windowWidth, windowHeight);
