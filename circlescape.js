@@ -215,9 +215,9 @@ console.log(tileNum);
 function windowResized() {
 
   resizeCanvas(windowWidth, windowHeight);
-  // calcDimensions();
-  // textLayer.resizeCanvas(windowWidth, windowHeight);
-  //
+  calcDimensions();
+  textLayer.resizeCanvas(windowWidth, windowHeight);
+
   // let introLayerNew = createGraphics(windowWidth, windowHeight);
   // introLayerNew.image(introLayer,0,0,windowWidth, windowHeight);
   // introLayer.resizeCanvas(windowWidth, windowHeight);
