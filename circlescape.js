@@ -214,21 +214,21 @@ console.log(tileNum);
 
 function windowResized() {
 
-  resizeCanvas(windowWidth, windowHeight);
-  calcDimensions();
-  textLayer.resizeCanvas(windowWidth, windowHeight);
+  // resizeCanvas(windowWidth, windowHeight);
+  // calcDimensions();
+  // textLayer.resizeCanvas(windowWidth, windowHeight);
+  //
+  // let introLayerNew = createGraphics(windowWidth, windowHeight);
+  // introLayerNew.image(introLayer,0,0,windowWidth, windowHeight);
+  // introLayer.resizeCanvas(windowWidth, windowHeight);
+  // introLayer = introLayerNew;
+  // changeBrush(currentLayer);
+  //
+  // removeElements();
 
-  let introLayerNew = createGraphics(windowWidth, windowHeight);
-  introLayerNew.image(introLayer,0,0,windowWidth, windowHeight);
-  introLayer.resizeCanvas(windowWidth, windowHeight);
-  introLayer = introLayerNew;
-  changeBrush(currentLayer);
 
-  removeElements();
-
-
-
-  if (introState === 3){
+  // 
+  // if (introState === 3){
   //   let bgLayer1New = createGraphics(windowWidth, windowHeight);
   //   bgLayer1New.image(bgLayer1,0,0,windowWidth, windowHeight);
   //   bgLayer1.resizeCanvas(windowWidth, windowHeight);
@@ -259,26 +259,26 @@ function windowResized() {
   //   saveNext();
   //
 
-
-    if (drawingIsActive){
-
-        makeSwatch();
-        blendMode(BLEND);
-          background(255);
-          blendMode(DARKEST);
-          image(subLayer1, windowWidth, windowHeight);
-          image(subLayer2, windowWidth, windowHeight);
-          image(subLayer3, windowWidth, windowHeight);
-          changeBrush(currentLayer);
-
-    }
-
-    else if (!drawingIsActive){
-      blendMode(BLEND);
-      background(255);
-      makeSlider();
-
-
-    }
-  }
+  //
+  //   if (drawingIsActive){
+  //
+  //       makeSwatch();
+  //       blendMode(BLEND);
+  //         background(255);
+  //         blendMode(DARKEST);
+  //         image(subLayer1, windowWidth, windowHeight);
+  //         image(subLayer2, windowWidth, windowHeight);
+  //         image(subLayer3, windowWidth, windowHeight);
+  //         changeBrush(currentLayer);
+  //
+  //   }
+  //
+  //   else if (!drawingIsActive){
+  //     blendMode(BLEND);
+  //     background(255);
+  //     makeSlider();
+  //
+  //
+  //   }
+  // }
 }
