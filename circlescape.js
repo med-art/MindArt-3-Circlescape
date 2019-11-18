@@ -56,6 +56,7 @@ function setup() {
   ellipseSize = vMax * 20;
   arcRadius = vMin * 35;
   slide = 0;
+  makeSlider();
   slideShow();
 
 }
@@ -91,7 +92,7 @@ function touchMoved() {
       bgLayer3.line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
       blendMode(BLEND);
       strokeWeight(60);
-      stroke(255,90);
+      stroke(255,96);
       line(winMouseX, winMouseY, pwinMouseX, pwinMouseY);
 
     } else {
